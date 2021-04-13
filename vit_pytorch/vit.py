@@ -82,7 +82,7 @@ class ViT(nn.Module):
         super().__init__()
         assert image_size % patch_size == 0, 'Image dimensions must be divisible by the patch size.'
         num_patches = (image_size // patch_size) ** 2
-        patch_dim = channels * patch_size ** 2
+        patch_dim = channels * patch_size ** 2 #
         assert pool in {'cls', 'mean'}, 'pool type must be either cls (cls token) or mean (mean pooling)'
 
         self.to_patch_embedding = nn.Sequential(
@@ -90,6 +90,7 @@ class ViT(nn.Module):
             nn.Linear(patch_dim, dim),
         )
 
+        # Rearrange here comes from einops, and what it does quite elegantly is split th eimage long height and width to recover a series of patches each with the corresponding channels, and those are concatenated /passed through the linear layer.
         self.pos_embedding = nn.Parameter(torch.randn(1, num_patches + 1, dim))
         self.cls_token = nn.Parameter(torch.randn(1, 1, dim))
         self.dropout = nn.Dropout(emb_dropout)
