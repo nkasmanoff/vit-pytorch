@@ -5,6 +5,8 @@ PyTorch Lightning wrapper for different ViT models and datasets.
 
 
 from pytorch_lightning import Trainer
+from pl_bolts.datamodules import CIFAR10DataModule, ImagenetDataModule
+
 import matplotlib.pyplot as plt
 import torch
 import torch.nn as nn
