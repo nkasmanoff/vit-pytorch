@@ -6,25 +6,19 @@ PyTorch Lightning wrapper for different ViT models and datasets.
 
 from pytorch_lightning import Trainer
 #from pl_bolts.datamodules import CIFAR10DataModule, ImagenetDataModule
-
+from 
 import matplotlib.pyplot as plt
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import pytorch_lightning as pl
 
-from src.models.models import *
-from src.models.loss import *
-from dat.mri_DataLoader import *
-from dat.utils import *
 
 
-sys.path.append('../vit_pytorch/')
-sys.path.append('../')
 
 from vit import ViT
 from recorder import Recorder # import the Recorder and instantiate
-
+from dataloaders import *
 
 
 import matplotlib.pyplot as plt
@@ -147,7 +141,9 @@ class ViT_Trainer(pl.LightningModule):
     
     def prepare_data(self):
         # the dataloaders are run batch by batch where this is run fully and once before beginning training
-        self.train_loader, self.valid_loader, self.test_loader = create_datasets(batch_size=self.batch_size, data = self.dataset, batch = self.batch, seed = self.seed)
+        self.train_loader, self.valid_loader, self.test_loader = get_CIFAR_data(batch_size=self.batch_size,
+                                                                                 dset = self.dataset, 
+                                                                                 )
 
     def train_dataloader(self):
         return self.train_loader
