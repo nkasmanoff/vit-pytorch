@@ -5,7 +5,7 @@ PyTorch Lightning wrapper for different ViT models and datasets.
 
 
 from pytorch_lightning import Trainer
-from pl_bolts.datamodules import CIFAR10DataModule, ImagenetDataModule
+#from pl_bolts.datamodules import CIFAR10DataModule, ImagenetDataModule
 
 import matplotlib.pyplot as plt
 import torch
@@ -17,13 +17,22 @@ from src.models.models import *
 from src.models.loss import *
 from dat.mri_DataLoader import *
 from dat.utils import *
+
+
+sys.path.append('../vit_pytorch/')
+sys.path.append('../')
+
+from vit import ViT
+from recorder import Recorder # import the Recorder and instantiate
+
+
+
 import matplotlib.pyplot as plt
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import pytorch_lightning as pl
 from pytorch_lightning import Trainer
-from test_tube import HyperOptArgumentParser, SlurmCluster
 from argparse import ArgumentParser, Namespace
 import os
 import random
@@ -178,7 +187,7 @@ class ViT_Trainer(pl.LightningModule):
         fig, ax = plt.subplots()
         ax.imshow(result) #grayscale
         ax.set_title("PRED=" + str(y_pred)  + "_\n_" + "TRUTH=" + str(y_true))
-        tag = f'{step_name}_example_attention'
+        tag = f'{step_name}_attention_map'
         self.logger.experiment.add_figure(tag, fig, global_step=self.trainer.global_step, close=True, walltime=None)
           
 
