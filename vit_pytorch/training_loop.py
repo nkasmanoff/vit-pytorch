@@ -245,8 +245,8 @@ class ViT_Trainer(pl.LightningModule):
 if __name__ == '__main__':
     parser = ArgumentParser()
     parser = Trainer.add_argparse_args(parser)
-    parser = Autolabel.add_model_specific_args(parser)
+    parser = ViT_Trainer.add_model_specific_args(parser)
     args = parser.parse_args()
-    model = Autolabel(args)
+    model = ViT_Trainer(args)
     trainer = Trainer.from_argparse_args(args)
     trainer.fit(model)
