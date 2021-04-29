@@ -39,6 +39,7 @@ import seaborn as sns
 
 
 
+
 class ViT_Trainer(pl.LightningModule):
     def __init__(self, hparams=None):
         super(ViT_Trainer,self).__init__()
@@ -57,10 +58,11 @@ class ViT_Trainer(pl.LightningModule):
                             mlp_dim=self.mlp_dim,
                             dropout=self.dropout
                         )
+        self.rec = Recorder()
 
     def forward(self,x):
 
-        y_pred = self.__model(x)# returns the predicted class for this dataset. 
+        y_pred = self.__model(x,rec = self.rec)# returns the predicted class for this dataset. 
 
         return y_pred
 
@@ -70,9 +72,9 @@ class ViT_Trainer(pl.LightningModule):
         img, y_true  = batch
         y_pred = self(img) 
 
-        if batch_idx % 1200 == 0:
+        if batch_idx % 1500 == 0:
             # log progress. save a few images from the batch, what they are, and what their prediction is. 
-            self.__log_step(img,y_true,y_pred step_name)
+            self.__log_step(img,y_true,y_pred, step_name)
 
 
 
@@ -85,6 +87,7 @@ class ViT_Trainer(pl.LightningModule):
 
         train_loss, _, _ = self._run_step( batch, batch_idx,step_name='train') 
         train_tensorboard_logs = {'train_loss': train_loss}
+        
         return {'loss': train_loss, 'log': train_tensorboard_logs}
 
 
@@ -157,7 +160,7 @@ class ViT_Trainer(pl.LightningModule):
     def __log_step(self,img, y_true, y_pred, step_name, limit=1):
         ## Plot attention map 
         j = 0 # using the jth element from that batch 
-        attn_mat = rec.attn[j].cpu()
+        attn_mat = self.rec.attn[j].cpu()
         im = img[j].cpu().numpy().transpose(1,2,0)
         attn_mat = torch.mean(attn_mat, dim=1) # average across heads 
         # To account for residual connections, we add an identity matrix to the
@@ -181,27 +184,32 @@ class ViT_Trainer(pl.LightningModule):
         result = (mask * im.astype("uint8"))
         #TODO 
         fig, ax = plt.subplots()
-        ax.imshow(result) #grayscale
-        ax.set_title("PRED=" + str(y_pred)  + "_\n_" + "TRUTH=" + str(y_true))
-        tag = f'{step_name}_attention_map'
+        ax.imshow(im) #grayscale
+        tag = f'{step_name}_image'
         self.logger.experiment.add_figure(tag, fig, global_step=self.trainer.global_step, close=True, walltime=None)
           
 
+        fig, ax = plt.subplots()
+        ax.imshow(mask)
+        tag = f'{step_name}_attention_mask'
+        self.logger.experiment.add_figure(tag, fig, global_step=self.trainer.global_step, close=True, walltime=None)
 
+        
+    
     def __check_hparams(self, hparams):
-        self.channels = hparams.channels if hasattr(hparams, 'channels') else 1
-        self.image_size = hparams.image_size if hasattr(hparams, 'image_size') else 128
-        self.patch_size = hparams.patch_size if hasattr(hparams, 'patch_size') else 128
-        self.depth = hparams.depth if hasattr(hparams, 'depth') else 128
-        self.heads = hparams.heads if hasattr(hparams, 'heads') else 128
-        self.dim = hparams.dim if hasattr(hparams, 'dim') else 128
-        self.mlp_dim = hparams.mlp_dim if hasattr(hparams, 'mlp_dim') else 128
-        self.dropout = hparams.dropout if hasattr(hparams, 'dropout') else 128
-        self.num_classes = hparams.num_classes if hasattr(hparams, 'num_classes') else 128
+        self.channels = hparams.channels if hasattr(hparams, 'channels') else 3
+        self.image_size = hparams.image_size if hasattr(hparams, 'image_size') else 32
+        self.patch_size = hparams.patch_size if hasattr(hparams, 'patch_size') else 8
+        self.depth = hparams.depth if hasattr(hparams, 'depth') else 8
+        self.heads = hparams.heads if hasattr(hparams, 'heads') else 8
+        self.dim = hparams.dim if hasattr(hparams, 'dim') else 768
+        self.mlp_dim = hparams.mlp_dim if hasattr(hparams, 'mlp_dim') else 512
+        self.dropout = hparams.dropout if hasattr(hparams, 'dropout') else 0
+        self.num_classes = hparams.num_classes if hasattr(hparams, 'num_classes') else 10
 
-        self.batch_size = hparams.batch_size if hasattr(hparams, 'batch_size') else 4
+        self.batch_size = hparams.batch_size if hasattr(hparams, 'batch_size') else 128
         self.learning_rate = hparams.learning_rate if hasattr(hparams, 'learning_rate') else 0.001
-        self.weight_decay = hparams.weight_decay if hasattr(hparams, 'weight_decay') else 0.
+        self.weight_decay = hparams.weight_decay if hasattr(hparams, 'weight_decay') else 0.001
         self.seed = hparams.seed if hasattr(hparams, 'seed') else 32
         self.dataset = hparams.dataset if hasattr(hparams, 'dataset') else 'cifar10'
 
@@ -212,24 +220,26 @@ class ViT_Trainer(pl.LightningModule):
         parser = HyperOptArgumentParser(parents=[parent_parser], add_help=False)
 
         # architecture specific arguments
-        parser.add_argument('--channels', type=int, default=128) 
-        parser.add_argument('--image_size', type=int, default=128) 
-        parser.add_argument('--patch_size', type=int, default=128) 
-        parser.add_argument('--depth', type=int, default=128) 
-        parser.add_argument('--heads', type=int, default=128) 
-        parser.add_argument('--dim', type=int, default=128) 
-        parser.add_argument('--mlp_dim', type=int, default=128) 
-        parser.add_argument('--dropout', type=float, default=.2) 
+        parser.add_argument('--channels', type=int, default=3) 
+        parser.add_argument('--image_size', type=int, default=32)  
+        parser.add_argument('--patch_size', type=int, default=4)  # not really specified
+        parser.add_argument('--depth', type=int, default=12)  # 12, 24, 32
+        parser.add_argument('--heads', type=int, default=12)  # 12, 16, 16
+        parser.add_argument('--dim', type=int, default=768)  # 768, 1024, 1280
+        parser.add_argument('--mlp_dim', type=int, default=3072) # 3072, 4096, 5120
+        parser.add_argument('--dropout', type=float, default=0)  # 0 or .1
         parser.add_argument('--num_classes', type=int, default=10) 
 
         # setup arguments
-        parser.add_argument('--batch_size', type=int, default=128) 
-        parser.add_argument('--learning_rate', type=int, default=128) 
-        parser.add_argument('--weight_decay', type=int, default=128) 
+        parser.add_argument('--batch_size', type=int, default=128)  # 4096 
+        parser.add_argument('--learning_rate', type=int, default=1e-4) # .9, .999 (Adam)
+        parser.add_argument('--weight_decay', type=int, default=.001) # .1
         parser.add_argument('--seed', type=int, default = 42) # shuffling samples in data loader 
         parser.add_argument('--dataset',type=str, default = 'cifar10') # which data set to train with. 
 
         return parser
+
+
 
 
 if __name__ == '__main__':
