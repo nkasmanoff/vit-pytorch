@@ -6,7 +6,7 @@ PyTorch Lightning wrapper for different ViT models and datasets.
 
 from pytorch_lightning import Trainer
 #from pl_bolts.datamodules import CIFAR10DataModule, ImagenetDataModule
-from 
+#from 
 import matplotlib.pyplot as plt
 import torch
 import torch.nn as nn
@@ -15,10 +15,11 @@ import pytorch_lightning as pl
 
 
 
-
+import sys
+sys.path.append('..')
 from vit import ViT
 from recorder import Recorder # import the Recorder and instantiate
-from dataloaders import *
+from dataloader import *
 
 
 import matplotlib.pyplot as plt
@@ -35,7 +36,6 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 import seaborn as sns
-
 
 
 
