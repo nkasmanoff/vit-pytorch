@@ -29,6 +29,7 @@ import torch.nn.functional as F
 import pytorch_lightning as pl
 from pytorch_lightning import Trainer
 from argparse import ArgumentParser, Namespace
+from test_tube import HyperOptArgumentParser, SlurmCluster
 import os
 import random
 import sys
