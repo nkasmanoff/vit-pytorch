@@ -20,7 +20,7 @@ sys.path.append('..')
 from vit import ViT
 from recorder import Recorder # import the Recorder and instantiate
 from dataloader import *
-
+import cv2
 
 import matplotlib.pyplot as plt
 import torch
