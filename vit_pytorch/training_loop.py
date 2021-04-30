@@ -195,7 +195,13 @@ class ViT_Trainer(pl.LightningModule):
         tag = f'{step_name}_attention_mask'
         self.logger.experiment.add_figure(tag, fig, global_step=self.trainer.global_step, close=True, walltime=None)
 
+        fig, ax = plt.subplots()
+        ax.imshow(result)
+        tag = f'{step_name}_overlay'
+        self.logger.experiment.add_figure(tag, fig, global_step=self.trainer.global_step, close=True, walltime=None)
+
         
+
     
     def __check_hparams(self, hparams):
         self.channels = hparams.channels if hasattr(hparams, 'channels') else 3
@@ -206,13 +212,13 @@ class ViT_Trainer(pl.LightningModule):
         self.dim = hparams.dim if hasattr(hparams, 'dim') else 768
         self.mlp_dim = hparams.mlp_dim if hasattr(hparams, 'mlp_dim') else 512
         self.dropout = hparams.dropout if hasattr(hparams, 'dropout') else 0
-        self.num_classes = hparams.num_classes if hasattr(hparams, 'num_classes') else 10
+        self.num_classes = hparams.num_classes if hasattr(hparams, 'num_classes') else 100
 
         self.batch_size = hparams.batch_size if hasattr(hparams, 'batch_size') else 128
         self.learning_rate = hparams.learning_rate if hasattr(hparams, 'learning_rate') else 0.001
         self.weight_decay = hparams.weight_decay if hasattr(hparams, 'weight_decay') else 0.001
         self.seed = hparams.seed if hasattr(hparams, 'seed') else 32
-        self.dataset = hparams.dataset if hasattr(hparams, 'dataset') else 'cifar10'
+        self.dataset = hparams.dataset if hasattr(hparams, 'dataset') else 'cifar100'
 
 
 
@@ -229,14 +235,14 @@ class ViT_Trainer(pl.LightningModule):
         parser.add_argument('--dim', type=int, default=768)  # 768, 1024, 1280
         parser.add_argument('--mlp_dim', type=int, default=3072) # 3072, 4096, 5120
         parser.add_argument('--dropout', type=float, default=0)  # 0 or .1
-        parser.add_argument('--num_classes', type=int, default=10) 
+        parser.add_argument('--num_classes', type=int, default=100) 
 
         # setup arguments
         parser.add_argument('--batch_size', type=int, default=128)  # 4096 
         parser.add_argument('--learning_rate', type=int, default=1e-4) # .9, .999 (Adam)
         parser.add_argument('--weight_decay', type=int, default=.001) # .1
         parser.add_argument('--seed', type=int, default = 42) # shuffling samples in data loader 
-        parser.add_argument('--dataset',type=str, default = 'cifar10') # which data set to train with. 
+        parser.add_argument('--dataset',type=str, default = 'cifar100') # which data set to train with. 
 
         return parser
 
