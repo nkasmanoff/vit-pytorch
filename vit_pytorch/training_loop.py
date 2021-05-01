@@ -206,17 +206,17 @@ class ViT_Trainer(pl.LightningModule):
     def __check_hparams(self, hparams):
         self.channels = hparams.channels if hasattr(hparams, 'channels') else 3
         self.image_size = hparams.image_size if hasattr(hparams, 'image_size') else 32
-        self.patch_size = hparams.patch_size if hasattr(hparams, 'patch_size') else 8
-        self.depth = hparams.depth if hasattr(hparams, 'depth') else 8
-        self.heads = hparams.heads if hasattr(hparams, 'heads') else 8
+        self.patch_size = hparams.patch_size if hasattr(hparams, 'patch_size') else 4
+        self.depth = hparams.depth if hasattr(hparams, 'depth') else 12
+        self.heads = hparams.heads if hasattr(hparams, 'heads') else 12
         self.dim = hparams.dim if hasattr(hparams, 'dim') else 768
-        self.mlp_dim = hparams.mlp_dim if hasattr(hparams, 'mlp_dim') else 512
+        self.mlp_dim = hparams.mlp_dim if hasattr(hparams, 'mlp_dim') else 3072
         self.dropout = hparams.dropout if hasattr(hparams, 'dropout') else 0
         self.num_classes = hparams.num_classes if hasattr(hparams, 'num_classes') else 100
 
-        self.batch_size = hparams.batch_size if hasattr(hparams, 'batch_size') else 128
-        self.learning_rate = hparams.learning_rate if hasattr(hparams, 'learning_rate') else 0.001
-        self.weight_decay = hparams.weight_decay if hasattr(hparams, 'weight_decay') else 0.001
+        self.batch_size = hparams.batch_size if hasattr(hparams, 'batch_size') else 256
+        self.learning_rate = hparams.learning_rate if hasattr(hparams, 'learning_rate') else 0.9
+        self.weight_decay = hparams.weight_decay if hasattr(hparams, 'weight_decay') else 0.1
         self.seed = hparams.seed if hasattr(hparams, 'seed') else 32
         self.dataset = hparams.dataset if hasattr(hparams, 'dataset') else 'cifar100'
 
@@ -238,9 +238,9 @@ class ViT_Trainer(pl.LightningModule):
         parser.add_argument('--num_classes', type=int, default=100) 
 
         # setup arguments
-        parser.add_argument('--batch_size', type=int, default=128)  # 4096 
-        parser.add_argument('--learning_rate', type=int, default=1e-4) # .9, .999 (Adam)
-        parser.add_argument('--weight_decay', type=int, default=.001) # .1
+        parser.add_argument('--batch_size', type=int, default=256)  # 4096 
+        parser.add_argument('--learning_rate', type=int, default=.9) # .9, .999 (Adam)
+        parser.add_argument('--weight_decay', type=int, default=.1) # .1
         parser.add_argument('--seed', type=int, default = 42) # shuffling samples in data loader 
         parser.add_argument('--dataset',type=str, default = 'cifar100') # which data set to train with. 
 
