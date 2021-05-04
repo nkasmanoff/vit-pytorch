@@ -33,6 +33,7 @@ from test_tube import HyperOptArgumentParser, SlurmCluster
 import os
 import random
 import sys
+import resnet
 import numpy as np
 import pandas as pd
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
