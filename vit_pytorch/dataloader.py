@@ -27,7 +27,7 @@ def get_CIFAR_data(dset='cifar10',
                    val_size = 5000,
                    batch_size = 64,
                    transforms=transforms.Compose([
-                    transforms.RandomRotation(degrees=15)
+                    transforms.RandomRotation(degrees=15),
                   transforms.RandomVerticalFlip(),
                            transforms.ToTensor(),
                            transforms.Normalize((0.,), (1,))
