@@ -9,4 +9,4 @@
 #SBATCH --output=slurm-%j.out
 #SBATCH --job-name run_trainer
 
-python training_loop.py --gpus 1 --max_epochs 500 
+python training_loop.py --gpus 1 --max_epochs 500 --dataset 'cifar100' --num_classes 100
