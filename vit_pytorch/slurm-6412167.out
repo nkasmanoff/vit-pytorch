@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "training_loop.py", line 22, in <module>
+    from dataloader import *
+  File "/scratch/nsk367/SP21/vit-pytorch/vit_pytorch/dataloader.py", line 31
+    transforms.RandomVerticalFlip(),
+    ^
+SyntaxError: invalid syntax

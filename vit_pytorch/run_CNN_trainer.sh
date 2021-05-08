@@ -7,6 +7,6 @@
 #SBATCH --mail-type=END
 #SBATCH --mail-user=nsk367@nyu.edu
 #SBATCH --output=slurm-%j.out
-#SBATCH --job-name run_trainer
+#SBATCH --job-name run_CNN_trainer
 
-python resnet_training_loop.py --gpus 1 --max_epochs 500
+python resnet_training_loop.py --gpus 1 --max_epochs 500 --dataset 'cifar100' --num_classes 100
