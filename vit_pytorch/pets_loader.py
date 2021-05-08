@@ -8,37 +8,45 @@ from sklearn import preprocessing, model_selection
 import cv2
 import seaborn as sns
 import matplotlib.pyplot as plt
+import wget
+import tarfile
 
 pd.set_option("display.max_colwidth", None, "display.max_row", None)
-%reload_ext autoreload
-%autoreload 2
-%matplotlib inline
+# %reload_ext autoreload
+# %autoreload 2
+# %matplotlib inline
 
 import torch
 from torch.utils.data import DataLoader, Dataset
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
 
-def download_pets(root_dir = '../data/oxford_iiit_pet2'):
+def download_pets(root_dir = '../data/oxford_iiit_pet'):
     
     data_url = 'https://www.robots.ox.ac.uk/~vgg/data/pets/data/images.tar.gz'
     annotations_url = 'https://www.robots.ox.ac.uk/~vgg/data/pets/data/annotations.tar.gz'
         
     #download dataset
     if not os.path.exists(root_dir + '/images'):
-        !wget {data_url} --directory-prefix {root_dir}
-        !tar -xzf {root_dir + '/images.tar.gz'} --directory {root_dir}
+        filename = wget.download(data_url, out=root_dir)
+        
+        tar = tarfile.open(root_dir + '/images.tar.gz', "r:gz")
+        tar.extractall(root_dir)
+        tar.close()
     
     #download annotations
     if not os.path.exists(root_dir + '/annotations'):
-        !wget {annotations_url} --directory-prefix {root_dir}
-        !tar -xzf {root_dir + '/annotations.tar.gz'} --directory {root_dir}
+        filename = wget.download(annotations_url, out=root_dir)
+        
+        tar = tarfile.open(root_dir + '/annotations.tar.gz', "r:gz")
+        tar.extractall(root_dir)
+        tar.close()
         
 
 
 def transforms(trn:bool=False):
-    h = 128 #@param{type:"integer"}
-    w = 128 #@param{type:"integer"}
+    h = 32 #@param{type:"integer"}
+    w = 32 #@param{type:"integer"}
     
     if trn: 
         tfms = [A.CLAHE(), A.IAAPerspective(), A.IAASharpen(), A.RandomBrightness(),
@@ -65,6 +73,7 @@ class ParseData(Dataset):
         return im, lbl
     
 def get_PETS_data(root_dir ='../data/oxford_iiit_pet',
+                  batch_size = 16,
                  test_size = 0.20,
                 val_size = 0.20):
     
@@ -105,8 +114,8 @@ def get_PETS_data(root_dir ='../data/oxford_iiit_pet',
     X_val.to_csv(root_dir + '/val_images.csv', index = False)
     X_test.to_csv(root_dir + '/test_images.csv', index = False)
     
-    train_loader = DataLoader(ParseData(root_dir + '/train_images.csv', transforms(True)),batch_size=128,shuffle=True, pin_memory=True)
-    val_loader = DataLoader(ParseData(root_dir + '/val_images.csv', transforms(False)),batch_size=128,shuffle=False, pin_memory=True)
-    test_loader = DataLoader(ParseData(root_dir + '/test_images.csv', transforms(False)),batch_size=128,shuffle=False, pin_memory=True)
+    train_loader = DataLoader(ParseData(root_dir + '/train_images.csv', transforms(True)),batch_size=batch_size,shuffle=True, pin_memory=True)
+    val_loader = DataLoader(ParseData(root_dir + '/val_images.csv', transforms(False)),batch_size=batch_size,shuffle=False, pin_memory=True)
+    test_loader = DataLoader(ParseData(root_dir + '/test_images.csv', transforms(False)),batch_size=batch_size,shuffle=False, pin_memory=True)
     
     return train_loader, val_loader, test_loader
