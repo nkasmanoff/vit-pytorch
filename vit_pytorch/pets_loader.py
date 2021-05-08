@@ -108,8 +108,8 @@ def get_PETS_data(root_dir ='../data/oxford_iiit_pet',
     y = df.labels.values
 
     #train, val, test split
-    X_train, X_test, y_train, y_test = model_selection.train_test_split(df, y, test_size=test_size, stratify=df.labels random_state=42) # This should stratify train-val  test
-    X_train, X_val, y_train, y_val = model_selection.train_test_split(X_train, y_train, test_size=val_size / (1-test_size), stratify = y_train, random_state=42) # I think this one will work too 
+    X_train, X_test, y_train, y_test = model_selection.train_test_split(df, y, test_size=test_size, stratify=df.labels, random_state=42) # This should stratify train-val  test
+    X_train, X_val, y_train, y_val = model_selection.train_test_split(X_train, y_train, test_size=val_size / (1-test_size), stratify = y_train, random_state=42) # I think this one will work too
 
     X_train.to_csv(root_dir + '/train_images.csv', index = False)
     X_val.to_csv(root_dir + '/val_images.csv', index = False)
