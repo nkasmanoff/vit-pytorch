@@ -239,7 +239,7 @@ class ViT_Trainer(pl.LightningModule):
         parser.add_argument('--num_classes', type=int, default=10)
 
         # setup arguments
-        parser.add_argument('--batch_size', type=int, default=512)  # 4096
+        parser.add_argument('--batch_size', type=int, default=256)  # 4096
         parser.add_argument('--learning_rate', type=int, default=.0001) # .9, .999 (Adam)
         parser.add_argument('--weight_decay', type=int, default=.00005) # .1
         parser.add_argument('--seed', type=int, default = 42) # shuffling samples in data loader
