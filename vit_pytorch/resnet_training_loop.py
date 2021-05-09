@@ -1,12 +1,12 @@
 """
-PyTorch Lightning wrapper for different ViT models and datasets. 
+PyTorch Lightning wrapper for different ViT models and datasets.
 
 """
 
 
 from pytorch_lightning import Trainer
 #from pl_bolts.datamodules import CIFAR10DataModule, ImagenetDataModule
-#from 
+#from
 import matplotlib.pyplot as plt
 import torch
 import torch.nn as nn
@@ -57,7 +57,7 @@ class CNN_Trainer(pl.LightningModule):
 
     def forward(self,x):
 
-        y_pred = self.__model(x)# returns the predicted class for this dataset. 
+        y_pred = self.__model(x)# returns the predicted class for this dataset.
 
         return y_pred
 
@@ -65,10 +65,10 @@ class CNN_Trainer(pl.LightningModule):
     def _run_step(self, batch, batch_idx,step_name):
 
         img, y_true  = batch
-        y_pred = self(img) 
+        y_pred = self(img)
 
         if batch_idx % 1500 == 0:
-            # log progress. save a few images from the batch, what they are, and what their prediction is. 
+            # log progress. save a few images from the batch, what they are, and what their prediction is.
             self.__log_step(img,y_true,y_pred, step_name)
 
 
@@ -80,9 +80,9 @@ class CNN_Trainer(pl.LightningModule):
 
     def training_step(self, batch, batch_idx):
 
-        train_loss, _, _ = self._run_step( batch, batch_idx,step_name='train') 
+        train_loss, _, _ = self._run_step( batch, batch_idx,step_name='train')
         train_tensorboard_logs = {'train_loss': train_loss}
-        
+
         return {'loss': train_loss, 'log': train_tensorboard_logs}
 
 
@@ -96,13 +96,13 @@ class CNN_Trainer(pl.LightningModule):
         val_acc = torch.from_numpy(np.array([accuracy_score(y_pred,y_true)]))
         val_log_dict['val_acc'] = val_acc
 
-        return val_log_dict 
+        return val_log_dict
 
 
-    def validation_epoch_end(self, outputs):   
+    def validation_epoch_end(self, outputs):
 
         val_tensorboard_logs = {}
-        avg_val_loss = torch.stack([x['val_loss'] for x in outputs]).mean()  
+        avg_val_loss = torch.stack([x['val_loss'] for x in outputs]).mean()
         avg_val_acc = torch.stack([x['val_acc'] for x in outputs]).mean()
         val_tensorboard_logs['avg_val_acc'] = avg_val_acc
         val_tensorboard_logs['avg_val_loss'] = avg_val_loss
@@ -119,13 +119,13 @@ class CNN_Trainer(pl.LightningModule):
         test_acc = torch.from_numpy(np.array([accuracy_score(y_pred,y_true)]))
         test_log_dict['test_acc'] = test_acc
 
-        return test_log_dict 
+        return test_log_dict
 
 
-    def test_epoch_end(self, outputs):    
+    def test_epoch_end(self, outputs):
 
         test_tensorboard_logs = {}
-        avg_test_loss = torch.stack([x['test_loss'] for x in outputs]).mean()  
+        avg_test_loss = torch.stack([x['test_loss'] for x in outputs]).mean()
         avg_test_acc = torch.stack([x['test_acc'] for x in outputs]).mean()
         test_tensorboard_logs['avg_test_acc'] = avg_test_acc
         test_tensorboard_logs['avg_test_loss'] = avg_test_loss
@@ -135,12 +135,12 @@ class CNN_Trainer(pl.LightningModule):
     def configure_optimizers(self):
         optimizer =  torch.optim.Adam(self.parameters(), lr = self.learning_rate ,weight_decay = self.weight_decay)
         scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer,patience = 4)
-        return [optimizer], [scheduler] 
-    
+        return [optimizer], [scheduler]
+
     def prepare_data(self):
         # the dataloaders are run batch by batch where this is run fully and once before beginning training
         self.train_loader, self.valid_loader, self.test_loader = get_CIFAR_data(batch_size=self.batch_size,
-                                                                                 dset = self.dataset, 
+                                                                                 dset = self.dataset,
                                                                                  )
 
     def train_dataloader(self):
@@ -154,7 +154,7 @@ class CNN_Trainer(pl.LightningModule):
 
     def __log_step(self,img, y_true, y_pred, step_name, limit=1):
         ## Plot image
-        j = 0 # using the jth element from that batch 
+        j = 0 # using the jth element from that batch
 
         im = img[j].cpu().numpy().transpose(1,2,0)
         # TODO - can say what this was predicted as, compared to ground truth.
@@ -162,10 +162,10 @@ class CNN_Trainer(pl.LightningModule):
         ax.imshow(im) #grayscale
         tag = f'{step_name}_image'
         self.logger.experiment.add_figure(tag, fig, global_step=self.trainer.global_step, close=True, walltime=None)
-          
 
 
-     
+
+
     def __check_hparams(self, hparams):
         self.channels = hparams.channels if hasattr(hparams, 'channels') else 3
         #self.image_size = hparams.image_size if hasattr(hparams, 'image_size') else 32
@@ -191,23 +191,23 @@ class CNN_Trainer(pl.LightningModule):
         parser = HyperOptArgumentParser(parents=[parent_parser], add_help=False)
 
         # architecture specific arguments
-        parser.add_argument('--channels', type=int, default=3) 
-        #parser.add_argument('--image_size', type=int, default=32)  
+        parser.add_argument('--channels', type=int, default=3)
+        #parser.add_argument('--image_size', type=int, default=32)
         #parser.add_argument('--patch_size', type=int, default=4)  # not really specified
         #parser.add_argument('--depth', type=int, default=12)  # 12, 24, 32
         #parser.add_argument('--heads', type=int, default=12)  # 12, 16, 16
         #parser.add_argument('--dim', type=int, default=768)  # 768, 1024, 1280
         #parser.add_argument('--mlp_dim', type=int, default=3072) # 3072, 4096, 5120
         #parser.add_argument('--dropout', type=float, default=0)  # 0 or .1
-        parser.add_argument('--num_classes', type=int, default=10) 
+        parser.add_argument('--num_classes', type=int, default=10)
 
         # setup arguments
-        parser.add_argument('--batch_size', type=int, default=128)  # 4096 
+        parser.add_argument('--batch_size', type=int, default=128)  # 4096
         parser.add_argument('--learning_rate', type=int, default=.001) # .9, .999 (Adam)
         parser.add_argument('--weight_decay', type=int, default=.001) # .1
-        parser.add_argument('--seed', type=int, default = 42) # shuffling samples in data loader 
-        parser.add_argument('--dataset',type=str, default = 'cifar10') # which data set to train with. 
-        parser.add_argument('--architecture',type=str, default = 'ResNet18') # which data set to train with. 
+        parser.add_argument('--seed', type=int, default = 42) # shuffling samples in data loader
+        parser.add_argument('--dataset',type=str, default = 'cifar10') # which data set to train with.
+        parser.add_argument('--architecture',type=str, default = 'ResNet18') # which data set to train with.
 
         return parser
 
@@ -223,3 +223,4 @@ if __name__ == '__main__':
     model = CNN_Trainer(args)
     trainer = Trainer.from_argparse_args(args)
     trainer.fit(model)
+    trainer.test()

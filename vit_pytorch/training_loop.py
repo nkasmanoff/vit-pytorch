@@ -230,22 +230,22 @@ class ViT_Trainer(pl.LightningModule):
         # architecture specific arguments
         parser.add_argument('--channels', type=int, default=3)
         parser.add_argument('--image_size', type=int, default=32)
-        parser.add_argument('--patch_size', type=int, default=8)  # not really specified
+        parser.add_argument('--patch_size', type=int, default=4)  # not really specified
         parser.add_argument('--depth', type=int, default=24)  # 12, 24, 32
         parser.add_argument('--heads', type=int, default=16)  # 12, 16, 16
         parser.add_argument('--dim', type=int, default=768)  # 768, 1024, 1280
-        parser.add_argument('--mlp_dim', type=int, default=3072) # 3072, 4096, 5120
+        parser.add_argument('--mlp_dim', type=int, default=512) # 3072, 4096, 5120
         parser.add_argument('--dropout', type=float, default=0)  # 0 or .1
         parser.add_argument('--num_classes', type=int, default=10)
 
         # setup arguments
-        parser.add_argument('--batch_size', type=int, default=64)  # 4096
-        parser.add_argument('--learning_rate', type=int, default=.005) # .9, .999 (Adam)
-        parser.add_argument('--weight_decay', type=int, default=.0001) # .1
+        parser.add_argument('--batch_size', type=int, default=512)  # 4096
+        parser.add_argument('--learning_rate', type=int, default=.0001) # .9, .999 (Adam)
+        parser.add_argument('--weight_decay', type=int, default=.00005) # .1
         parser.add_argument('--seed', type=int, default = 42) # shuffling samples in data loader
         parser.add_argument('--dataset',type=str, default = 'cifar10') # which data set to train with.
         parser.add_argument('--architecture',type=str, default = 'ViT') # which data set to train with.
-
+        # TODO pretrain path?
         return parser
 
 
@@ -259,3 +259,4 @@ if __name__ == '__main__':
     model = ViT_Trainer(args)
     trainer = Trainer.from_argparse_args(args)
     trainer.fit(model)
+    trainer.test()
