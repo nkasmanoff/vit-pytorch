@@ -9,4 +9,5 @@
 #SBATCH --output=slurm-%j.out
 #SBATCH --job-name run_CNN_trainer
 
-python resnet_training_loop.py --gpus 1 --max_epochs 500 --dataset 'cifar10' --num_classes 10
+python resnet_training_loop.py --gpus 1 --max_epochs 250 --dataset 
+'cifar100' --num_classes 100
