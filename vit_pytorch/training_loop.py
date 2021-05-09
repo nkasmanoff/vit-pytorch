@@ -235,13 +235,13 @@ class ViT_Trainer(pl.LightningModule):
         parser.add_argument('--heads', type=int, default=16)  # 12, 16, 16
         parser.add_argument('--dim', type=int, default=768)  # 768, 1024, 1280
         parser.add_argument('--mlp_dim', type=int, default=512) # 3072, 4096, 5120
-        parser.add_argument('--dropout', type=float, default=0)  # 0 or .1
+        parser.add_argument('--dropout', type=float, default=0.1)  # 0 or .1
         parser.add_argument('--num_classes', type=int, default=10)
 
         # setup arguments
         parser.add_argument('--batch_size', type=int, default=256)  # 4096
-        parser.add_argument('--learning_rate', type=int, default=.0001) # .9, .999 (Adam)
-        parser.add_argument('--weight_decay', type=int, default=.00005) # .1
+        parser.add_argument('--learning_rate', type=int, default=.001) # .9, .999 (Adam)
+        parser.add_argument('--weight_decay', type=int, default=.0) # .1
         parser.add_argument('--seed', type=int, default = 42) # shuffling samples in data loader
         parser.add_argument('--dataset',type=str, default = 'cifar10') # which data set to train with.
         parser.add_argument('--architecture',type=str, default = 'ViT') # which data set to train with.
