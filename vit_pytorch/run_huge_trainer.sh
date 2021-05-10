@@ -9,4 +9,4 @@
 #SBATCH --output=slurm-%j.out
 #SBATCH --job-name run_huge_trainer
 
-python training_loop.py --gpus 1 --max_epochs 150 --dataset 'cifar10' --num_classes 10 --architecture 'VitHuge' --depth 32 --heads 16 --dim 1280 --mlp_dim 5120 --droput .1 --batch_size 128
+python training_loop.py --gpus 1 --max_epochs 150 --dataset 'cifar10' --num_classes 10 --architecture 'VitHuge' --depth 32 --heads 16 --dim 1280 --mlp_dim 5120 --dropout .1 --batch_size 128
