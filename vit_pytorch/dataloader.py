@@ -30,7 +30,7 @@ def get_CIFAR_data(dset='cifar10',
                     transforms.RandomRotation(degrees=15),
                 #  transforms.RandomVerticalFlip(),
                            transforms.ToTensor(),
-                           transforms.Normalize((0.4914, 0.4822, 0.4465), (0.247, 0.243, 0.261)))
+                           transforms.Normalize((0.4914, 0.4822, 0.4465), (0.247, 0.243, 0.261))
                                    ])):
 
     if dset == 'cifar10':
