@@ -235,7 +235,7 @@ class ViT_Trainer(pl.LightningModule):
         parser.add_argument('--heads', type=int, default=12)  # 12, 16, 16
         parser.add_argument('--dim', type=int, default=768)  # 768, 1024, 1280
         parser.add_argument('--mlp_dim', type=int, default=3072) # 3072, 4096, 5120
-        parser.add_argument('--dropout', type=float, default=0)  # 0 or .1
+        parser.add_argument('--dropout', type=float, default=0.1)  # 0 or .1
         parser.add_argument('--num_classes', type=int, default=100)
 
         # setup arguments

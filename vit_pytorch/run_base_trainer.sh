@@ -11,4 +11,4 @@
 
 python training_loop.py --gpus 1 --max_epochs 150 --dataset 'cifar100'
 --num_classes 10- --architecture 'VitBase' --depth 12 --heads 12 --dim
-768 --mlp_dim 3072 --dropout 0 --batch_size 256
+768 --mlp_dim 3072 --dropout 0.1 --batch_size 256
