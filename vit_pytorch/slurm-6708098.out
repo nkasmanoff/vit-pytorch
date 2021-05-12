@@ -1,4 +1,0 @@
-  File "resnet_training_loop.py", line 207
-    parser.add_argument('--learning_rate', type=int, default=.001) # .9, .999 (Adam)
-    ^
-IndentationError: unexpected indent

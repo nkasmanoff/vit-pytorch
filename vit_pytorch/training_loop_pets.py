@@ -1,12 +1,12 @@
 """
-PyTorch Lightning wrapper for different ViT models and datasets. 
+PyTorch Lightning wrapper for different ViT models and datasets.
 
 """
 
 
 from pytorch_lightning import Trainer
 #from pl_bolts.datamodules import CIFAR10DataModule, ImagenetDataModule
-#from 
+#from
 import matplotlib.pyplot as plt
 import torch
 import torch.nn as nn
@@ -17,6 +17,9 @@ import pytorch_lightning as pl
 
 import sys
 sys.path.append('../vit_pytorch/')
+sys.path.append('utils/')
+sys.path.append('data/')
+sys.path.append('models/')
 sys.path.append('..')
 from vit import ViT
 from recorder import Recorder # import the Recorder and instantiate
@@ -57,7 +60,7 @@ class ViT_Trainer(pl.LightningModule):
                             num_classes=self.num_classes,
                             channels=self.channels,
                             depth = self.depth,
-                            heads=self.heads, 
+                            heads=self.heads,
                             mlp_dim=self.mlp_dim,
                             dropout=self.dropout
                         )
@@ -65,7 +68,7 @@ class ViT_Trainer(pl.LightningModule):
 
     def forward(self,x):
 
-        y_pred = self.__model(x,rec = self.rec)# returns the predicted class for this dataset. 
+        y_pred = self.__model(x,rec = self.rec)# returns the predicted class for this dataset.
 
         return y_pred
 
@@ -73,10 +76,10 @@ class ViT_Trainer(pl.LightningModule):
     def _run_step(self, batch, batch_idx,step_name):
 
         img, y_true  = batch
-        y_pred = self(img) 
+        y_pred = self(img)
 
         if batch_idx % 1500 == 0:
-            # log progress. save a few images from the batch, what they are, and what their prediction is. 
+            # log progress. save a few images from the batch, what they are, and what their prediction is.
             self.__log_step(img,y_true,y_pred, step_name)
 
 
@@ -88,9 +91,9 @@ class ViT_Trainer(pl.LightningModule):
 
     def training_step(self, batch, batch_idx):
 
-        train_loss, _, _ = self._run_step( batch, batch_idx,step_name='train') 
+        train_loss, _, _ = self._run_step( batch, batch_idx,step_name='train')
         train_tensorboard_logs = {'train_loss': train_loss}
-        
+
         return {'loss': train_loss, 'log': train_tensorboard_logs}
 
 
@@ -104,13 +107,13 @@ class ViT_Trainer(pl.LightningModule):
         val_acc = torch.from_numpy(np.array([accuracy_score(y_pred,y_true)]))
         val_log_dict['val_acc'] = val_acc
 
-        return val_log_dict 
+        return val_log_dict
 
 
-    def validation_epoch_end(self, outputs):   
+    def validation_epoch_end(self, outputs):
 
         val_tensorboard_logs = {}
-        avg_val_loss = torch.stack([x['val_loss'] for x in outputs]).mean()  
+        avg_val_loss = torch.stack([x['val_loss'] for x in outputs]).mean()
         avg_val_acc = torch.stack([x['val_acc'] for x in outputs]).mean()
         val_tensorboard_logs['avg_val_acc'] = avg_val_acc
         val_tensorboard_logs['avg_val_loss'] = avg_val_loss
@@ -127,13 +130,13 @@ class ViT_Trainer(pl.LightningModule):
         test_acc = torch.from_numpy(np.array([accuracy_score(y_pred,y_true)]))
         test_log_dict['test_acc'] = test_acc
 
-        return test_log_dict 
+        return test_log_dict
 
 
-    def test_epoch_end(self, outputs):    
+    def test_epoch_end(self, outputs):
 
         test_tensorboard_logs = {}
-        avg_test_loss = torch.stack([x['test_loss'] for x in outputs]).mean()  
+        avg_test_loss = torch.stack([x['test_loss'] for x in outputs]).mean()
         avg_test_acc = torch.stack([x['test_acc'] for x in outputs]).mean()
         test_tensorboard_logs['avg_test_acc'] = avg_test_acc
         test_tensorboard_logs['avg_test_loss'] = avg_test_loss
@@ -143,8 +146,8 @@ class ViT_Trainer(pl.LightningModule):
     def configure_optimizers(self):
         optimizer =  torch.optim.Adam(self.parameters(), lr = self.learning_rate ,weight_decay = self.weight_decay)
         scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer,patience = 4)
-        return [optimizer], [scheduler] 
-    
+        return [optimizer], [scheduler]
+
     def prepare_data(self):
         # the dataloaders are run batch by batch where this is run fully and once before beginning training
         self.train_loader, self.valid_loader, self.test_loader = get_PETS_data(batch_size=self.batch_size)
@@ -159,11 +162,11 @@ class ViT_Trainer(pl.LightningModule):
         return self.test_loader
 
     def __log_step(self,img, y_true, y_pred, step_name, limit=1):
-        ## Plot attention map 
-        j = 0 # using the jth element from that batch 
+        ## Plot attention map
+        j = 0 # using the jth element from that batch
         attn_mat = self.rec.attn[j].cpu()
         im = img[j].cpu().numpy().transpose(1,2,0)
-        attn_mat = torch.mean(attn_mat, dim=1) # average across heads 
+        attn_mat = torch.mean(attn_mat, dim=1) # average across heads
         # To account for residual connections, we add an identity matrix to the
         # attention matrix and re-normalize the weights.
         residual_att = torch.eye(attn_mat.size(1))
@@ -174,8 +177,8 @@ class ViT_Trainer(pl.LightningModule):
         joint_attentions[0] = aug_att_mat[0]
         for n in range(1, aug_att_mat.size(0)):
             joint_attentions[n] = torch.matmul(aug_att_mat[n], joint_attentions[n-1])
-            
-        # combines all the different layers which apply attention. 
+
+        # combines all the different layers which apply attention.
 
         # Attention from the output token to the input space.
         v = joint_attentions[-1]
@@ -183,12 +186,12 @@ class ViT_Trainer(pl.LightningModule):
         mask = v[0, 1:].reshape(grid_size, grid_size).detach().numpy()
         mask = cv2.resize(mask / mask.max(), (self.image_size,self.image_size))[..., np.newaxis]
         result = (mask * im.astype("uint8"))
-        #TODO 
+        #TODO
         fig, ax = plt.subplots()
         ax.imshow(im) #grayscale
         tag = f'{step_name}_image'
         self.logger.experiment.add_figure(tag, fig, global_step=self.trainer.global_step, close=True, walltime=None)
-          
+
 
         fig, ax = plt.subplots()
         ax.imshow(mask)
@@ -200,9 +203,9 @@ class ViT_Trainer(pl.LightningModule):
         tag = f'{step_name}_overlay'
         self.logger.experiment.add_figure(tag, fig, global_step=self.trainer.global_step, close=True, walltime=None)
 
-        
 
-    
+
+
     def __check_hparams(self, hparams):
         self.channels = hparams.channels if hasattr(hparams, 'channels') else 3
         self.image_size = hparams.image_size if hasattr(hparams, 'image_size') else 32
@@ -228,23 +231,23 @@ class ViT_Trainer(pl.LightningModule):
         parser = HyperOptArgumentParser(parents=[parent_parser], add_help=False)
 
         # architecture specific arguments
-        parser.add_argument('--channels', type=int, default=3) 
-        parser.add_argument('--image_size', type=int, default=32)  
+        parser.add_argument('--channels', type=int, default=3)
+        parser.add_argument('--image_size', type=int, default=32)
         parser.add_argument('--patch_size', type=int, default=4)  # not really specified
         parser.add_argument('--depth', type=int, default=24)  # 12, 24, 32
         parser.add_argument('--heads', type=int, default=12)  # 12, 16, 16
         parser.add_argument('--dim', type=int, default=768)  # 768, 1024, 1280
         parser.add_argument('--mlp_dim', type=int, default=3072) # 3072, 4096, 5120
         parser.add_argument('--dropout', type=float, default=0.1)  # 0 or .1
-        parser.add_argument('--num_classes', type=int, default=10) 
+        parser.add_argument('--num_classes', type=int, default=10)
 
         # setup arguments
-        parser.add_argument('--batch_size', type=int, default=128)  # 4096 
+        parser.add_argument('--batch_size', type=int, default=128)  # 4096
         parser.add_argument('--learning_rate', type=int, default=.001) # .9, .999 (Adam)
         parser.add_argument('--weight_decay', type=int, default=.001) # .1
-        parser.add_argument('--seed', type=int, default = 42) # shuffling samples in data loader 
-        parser.add_argument('--dataset',type=str, default = 'cifar10') # which data set to train with. 
-        parser.add_argument('--architecture',type=str, default = 'ViT') # which data set to train with. 
+        parser.add_argument('--seed', type=int, default = 42) # shuffling samples in data loader
+        parser.add_argument('--dataset',type=str, default = 'cifar10') # which data set to train with.
+        parser.add_argument('--architecture',type=str, default = 'ViT') # which data set to train with.
 
         return parser
 

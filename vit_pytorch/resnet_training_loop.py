@@ -1,5 +1,5 @@
 """
-PyTorch Lightning wrapper for different ViT models and datasets.
+PyTorch Lightning wrapper for ResNet18
 
 """
 
@@ -17,6 +17,11 @@ import pytorch_lightning as pl
 
 import sys
 sys.path.append('..')
+sys.path.append('../vit_pytorch/')
+sys.path.append('utils/')
+sys.path.append('data/')
+sys.path.append('models/')
+
 from vit import ViT
 from recorder import Recorder # import the Recorder and instantiate
 from dataloader import *

@@ -1,436 +1,0 @@
-/scratch/nsk367/anaconda3/envs/vit/lib/python3.8/site-packages/torch/utils/data/dataloader.py:474: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
-  warnings.warn(_create_warning_msg(
-INFO:lightning:GPU available: True, used: True
-INFO:lightning:CUDA_VISIBLE_DEVICES: [0]
-INFO:lightning:Set SLURM handle signals.
-INFO:lightning:
-    | Name                                                    | Type        | Params
-------------------------------------------------------------------------------------
-0   | _ViT_Trainer__model                                     | ViT         | 302 M 
-1   | _ViT_Trainer__model.to_patch_embedding                  | Sequential  | 50 K  
-2   | _ViT_Trainer__model.to_patch_embedding.0                | Rearrange   | 0     
-3   | _ViT_Trainer__model.to_patch_embedding.1                | Linear      | 50 K  
-4   | _ViT_Trainer__model.dropout                             | Dropout     | 0     
-5   | _ViT_Trainer__model.transformer                         | Transformer | 302 M 
-6   | _ViT_Trainer__model.transformer.layers                  | ModuleList  | 302 M 
-7   | _ViT_Trainer__model.transformer.layers.0                | ModuleList  | 12 M  
-8   | _ViT_Trainer__model.transformer.layers.0.0              | PreNorm     | 4 M   
-9   | _ViT_Trainer__model.transformer.layers.0.0.norm         | LayerNorm   | 2 K   
-10  | _ViT_Trainer__model.transformer.layers.0.0.fn           | Attention   | 4 M   
-11  | _ViT_Trainer__model.transformer.layers.0.0.fn.to_qkv    | Linear      | 3 M   
-12  | _ViT_Trainer__model.transformer.layers.0.0.fn.to_out    | Sequential  | 1 M   
-13  | _ViT_Trainer__model.transformer.layers.0.0.fn.to_out.0  | Linear      | 1 M   
-14  | _ViT_Trainer__model.transformer.layers.0.0.fn.to_out.1  | Dropout     | 0     
-15  | _ViT_Trainer__model.transformer.layers.0.1              | PreNorm     | 8 M   
-16  | _ViT_Trainer__model.transformer.layers.0.1.norm         | LayerNorm   | 2 K   
-17  | _ViT_Trainer__model.transformer.layers.0.1.fn           | FeedForward | 8 M   
-18  | _ViT_Trainer__model.transformer.layers.0.1.fn.net       | Sequential  | 8 M   
-19  | _ViT_Trainer__model.transformer.layers.0.1.fn.net.0     | Linear      | 4 M   
-20  | _ViT_Trainer__model.transformer.layers.0.1.fn.net.1     | GELU        | 0     
-21  | _ViT_Trainer__model.transformer.layers.0.1.fn.net.2     | Dropout     | 0     
-22  | _ViT_Trainer__model.transformer.layers.0.1.fn.net.3     | Linear      | 4 M   
-23  | _ViT_Trainer__model.transformer.layers.0.1.fn.net.4     | Dropout     | 0     
-24  | _ViT_Trainer__model.transformer.layers.1                | ModuleList  | 12 M  
-25  | _ViT_Trainer__model.transformer.layers.1.0              | PreNorm     | 4 M   
-26  | _ViT_Trainer__model.transformer.layers.1.0.norm         | LayerNorm   | 2 K   
-27  | _ViT_Trainer__model.transformer.layers.1.0.fn           | Attention   | 4 M   
-28  | _ViT_Trainer__model.transformer.layers.1.0.fn.to_qkv    | Linear      | 3 M   
-29  | _ViT_Trainer__model.transformer.layers.1.0.fn.to_out    | Sequential  | 1 M   
-30  | _ViT_Trainer__model.transformer.layers.1.0.fn.to_out.0  | Linear      | 1 M   
-31  | _ViT_Trainer__model.transformer.layers.1.0.fn.to_out.1  | Dropout     | 0     
-32  | _ViT_Trainer__model.transformer.layers.1.1              | PreNorm     | 8 M   
-33  | _ViT_Trainer__model.transformer.layers.1.1.norm         | LayerNorm   | 2 K   
-34  | _ViT_Trainer__model.transformer.layers.1.1.fn           | FeedForward | 8 M   
-35  | _ViT_Trainer__model.transformer.layers.1.1.fn.net       | Sequential  | 8 M   
-36  | _ViT_Trainer__model.transformer.layers.1.1.fn.net.0     | Linear      | 4 M   
-37  | _ViT_Trainer__model.transformer.layers.1.1.fn.net.1     | GELU        | 0     
-38  | _ViT_Trainer__model.transformer.layers.1.1.fn.net.2     | Dropout     | 0     
-39  | _ViT_Trainer__model.transformer.layers.1.1.fn.net.3     | Linear      | 4 M   
-40  | _ViT_Trainer__model.transformer.layers.1.1.fn.net.4     | Dropout     | 0     
-41  | _ViT_Trainer__model.transformer.layers.2                | ModuleList  | 12 M  
-42  | _ViT_Trainer__model.transformer.layers.2.0              | PreNorm     | 4 M   
-43  | _ViT_Trainer__model.transformer.layers.2.0.norm         | LayerNorm   | 2 K   
-44  | _ViT_Trainer__model.transformer.layers.2.0.fn           | Attention   | 4 M   
-45  | _ViT_Trainer__model.transformer.layers.2.0.fn.to_qkv    | Linear      | 3 M   
-46  | _ViT_Trainer__model.transformer.layers.2.0.fn.to_out    | Sequential  | 1 M   
-47  | _ViT_Trainer__model.transformer.layers.2.0.fn.to_out.0  | Linear      | 1 M   
-48  | _ViT_Trainer__model.transformer.layers.2.0.fn.to_out.1  | Dropout     | 0     
-49  | _ViT_Trainer__model.transformer.layers.2.1              | PreNorm     | 8 M   
-50  | _ViT_Trainer__model.transformer.layers.2.1.norm         | LayerNorm   | 2 K   
-51  | _ViT_Trainer__model.transformer.layers.2.1.fn           | FeedForward | 8 M   
-52  | _ViT_Trainer__model.transformer.layers.2.1.fn.net       | Sequential  | 8 M   
-53  | _ViT_Trainer__model.transformer.layers.2.1.fn.net.0     | Linear      | 4 M   
-54  | _ViT_Trainer__model.transformer.layers.2.1.fn.net.1     | GELU        | 0     
-55  | _ViT_Trainer__model.transformer.layers.2.1.fn.net.2     | Dropout     | 0     
-56  | _ViT_Trainer__model.transformer.layers.2.1.fn.net.3     | Linear      | 4 M   
-57  | _ViT_Trainer__model.transformer.layers.2.1.fn.net.4     | Dropout     | 0     
-58  | _ViT_Trainer__model.transformer.layers.3                | ModuleList  | 12 M  
-59  | _ViT_Trainer__model.transformer.layers.3.0              | PreNorm     | 4 M   
-60  | _ViT_Trainer__model.transformer.layers.3.0.norm         | LayerNorm   | 2 K   
-61  | _ViT_Trainer__model.transformer.layers.3.0.fn           | Attention   | 4 M   
-62  | _ViT_Trainer__model.transformer.layers.3.0.fn.to_qkv    | Linear      | 3 M   
-63  | _ViT_Trainer__model.transformer.layers.3.0.fn.to_out    | Sequential  | 1 M   
-64  | _ViT_Trainer__model.transformer.layers.3.0.fn.to_out.0  | Linear      | 1 M   
-65  | _ViT_Trainer__model.transformer.layers.3.0.fn.to_out.1  | Dropout     | 0     
-66  | _ViT_Trainer__model.transformer.layers.3.1              | PreNorm     | 8 M   
-67  | _ViT_Trainer__model.transformer.layers.3.1.norm         | LayerNorm   | 2 K   
-68  | _ViT_Trainer__model.transformer.layers.3.1.fn           | FeedForward | 8 M   
-69  | _ViT_Trainer__model.transformer.layers.3.1.fn.net       | Sequential  | 8 M   
-70  | _ViT_Trainer__model.transformer.layers.3.1.fn.net.0     | Linear      | 4 M   
-71  | _ViT_Trainer__model.transformer.layers.3.1.fn.net.1     | GELU        | 0     
-72  | _ViT_Trainer__model.transformer.layers.3.1.fn.net.2     | Dropout     | 0     
-73  | _ViT_Trainer__model.transformer.layers.3.1.fn.net.3     | Linear      | 4 M   
-74  | _ViT_Trainer__model.transformer.layers.3.1.fn.net.4     | Dropout     | 0     
-75  | _ViT_Trainer__model.transformer.layers.4                | ModuleList  | 12 M  
-76  | _ViT_Trainer__model.transformer.layers.4.0              | PreNorm     | 4 M   
-77  | _ViT_Trainer__model.transformer.layers.4.0.norm         | LayerNorm   | 2 K   
-78  | _ViT_Trainer__model.transformer.layers.4.0.fn           | Attention   | 4 M   
-79  | _ViT_Trainer__model.transformer.layers.4.0.fn.to_qkv    | Linear      | 3 M   
-80  | _ViT_Trainer__model.transformer.layers.4.0.fn.to_out    | Sequential  | 1 M   
-81  | _ViT_Trainer__model.transformer.layers.4.0.fn.to_out.0  | Linear      | 1 M   
-82  | _ViT_Trainer__model.transformer.layers.4.0.fn.to_out.1  | Dropout     | 0     
-83  | _ViT_Trainer__model.transformer.layers.4.1              | PreNorm     | 8 M   
-84  | _ViT_Trainer__model.transformer.layers.4.1.norm         | LayerNorm   | 2 K   
-85  | _ViT_Trainer__model.transformer.layers.4.1.fn           | FeedForward | 8 M   
-86  | _ViT_Trainer__model.transformer.layers.4.1.fn.net       | Sequential  | 8 M   
-87  | _ViT_Trainer__model.transformer.layers.4.1.fn.net.0     | Linear      | 4 M   
-88  | _ViT_Trainer__model.transformer.layers.4.1.fn.net.1     | GELU        | 0     
-89  | _ViT_Trainer__model.transformer.layers.4.1.fn.net.2     | Dropout     | 0     
-90  | _ViT_Trainer__model.transformer.layers.4.1.fn.net.3     | Linear      | 4 M   
-91  | _ViT_Trainer__model.transformer.layers.4.1.fn.net.4     | Dropout     | 0     
-92  | _ViT_Trainer__model.transformer.layers.5                | ModuleList  | 12 M  
-93  | _ViT_Trainer__model.transformer.layers.5.0              | PreNorm     | 4 M   
-94  | _ViT_Trainer__model.transformer.layers.5.0.norm         | LayerNorm   | 2 K   
-95  | _ViT_Trainer__model.transformer.layers.5.0.fn           | Attention   | 4 M   
-96  | _ViT_Trainer__model.transformer.layers.5.0.fn.to_qkv    | Linear      | 3 M   
-97  | _ViT_Trainer__model.transformer.layers.5.0.fn.to_out    | Sequential  | 1 M   
-98  | _ViT_Trainer__model.transformer.layers.5.0.fn.to_out.0  | Linear      | 1 M   
-99  | _ViT_Trainer__model.transformer.layers.5.0.fn.to_out.1  | Dropout     | 0     
-100 | _ViT_Trainer__model.transformer.layers.5.1              | PreNorm     | 8 M   
-101 | _ViT_Trainer__model.transformer.layers.5.1.norm         | LayerNorm   | 2 K   
-102 | _ViT_Trainer__model.transformer.layers.5.1.fn           | FeedForward | 8 M   
-103 | _ViT_Trainer__model.transformer.layers.5.1.fn.net       | Sequential  | 8 M   
-104 | _ViT_Trainer__model.transformer.layers.5.1.fn.net.0     | Linear      | 4 M   
-105 | _ViT_Trainer__model.transformer.layers.5.1.fn.net.1     | GELU        | 0     
-106 | _ViT_Trainer__model.transformer.layers.5.1.fn.net.2     | Dropout     | 0     
-107 | _ViT_Trainer__model.transformer.layers.5.1.fn.net.3     | Linear      | 4 M   
-108 | _ViT_Trainer__model.transformer.layers.5.1.fn.net.4     | Dropout     | 0     
-109 | _ViT_Trainer__model.transformer.layers.6                | ModuleList  | 12 M  
-110 | _ViT_Trainer__model.transformer.layers.6.0              | PreNorm     | 4 M   
-111 | _ViT_Trainer__model.transformer.layers.6.0.norm         | LayerNorm   | 2 K   
-112 | _ViT_Trainer__model.transformer.layers.6.0.fn           | Attention   | 4 M   
-113 | _ViT_Trainer__model.transformer.layers.6.0.fn.to_qkv    | Linear      | 3 M   
-114 | _ViT_Trainer__model.transformer.layers.6.0.fn.to_out    | Sequential  | 1 M   
-115 | _ViT_Trainer__model.transformer.layers.6.0.fn.to_out.0  | Linear      | 1 M   
-116 | _ViT_Trainer__model.transformer.layers.6.0.fn.to_out.1  | Dropout     | 0     
-117 | _ViT_Trainer__model.transformer.layers.6.1              | PreNorm     | 8 M   
-118 | _ViT_Trainer__model.transformer.layers.6.1.norm         | LayerNorm   | 2 K   
-119 | _ViT_Trainer__model.transformer.layers.6.1.fn           | FeedForward | 8 M   
-120 | _ViT_Trainer__model.transformer.layers.6.1.fn.net       | Sequential  | 8 M   
-121 | _ViT_Trainer__model.transformer.layers.6.1.fn.net.0     | Linear      | 4 M   
-122 | _ViT_Trainer__model.transformer.layers.6.1.fn.net.1     | GELU        | 0     
-123 | _ViT_Trainer__model.transformer.layers.6.1.fn.net.2     | Dropout     | 0     
-124 | _ViT_Trainer__model.transformer.layers.6.1.fn.net.3     | Linear      | 4 M   
-125 | _ViT_Trainer__model.transformer.layers.6.1.fn.net.4     | Dropout     | 0     
-126 | _ViT_Trainer__model.transformer.layers.7                | ModuleList  | 12 M  
-127 | _ViT_Trainer__model.transformer.layers.7.0              | PreNorm     | 4 M   
-128 | _ViT_Trainer__model.transformer.layers.7.0.norm         | LayerNorm   | 2 K   
-129 | _ViT_Trainer__model.transformer.layers.7.0.fn           | Attention   | 4 M   
-130 | _ViT_Trainer__model.transformer.layers.7.0.fn.to_qkv    | Linear      | 3 M   
-131 | _ViT_Trainer__model.transformer.layers.7.0.fn.to_out    | Sequential  | 1 M   
-132 | _ViT_Trainer__model.transformer.layers.7.0.fn.to_out.0  | Linear      | 1 M   
-133 | _ViT_Trainer__model.transformer.layers.7.0.fn.to_out.1  | Dropout     | 0     
-134 | _ViT_Trainer__model.transformer.layers.7.1              | PreNorm     | 8 M   
-135 | _ViT_Trainer__model.transformer.layers.7.1.norm         | LayerNorm   | 2 K   
-136 | _ViT_Trainer__model.transformer.layers.7.1.fn           | FeedForward | 8 M   
-137 | _ViT_Trainer__model.transformer.layers.7.1.fn.net       | Sequential  | 8 M   
-138 | _ViT_Trainer__model.transformer.layers.7.1.fn.net.0     | Linear      | 4 M   
-139 | _ViT_Trainer__model.transformer.layers.7.1.fn.net.1     | GELU        | 0     
-140 | _ViT_Trainer__model.transformer.layers.7.1.fn.net.2     | Dropout     | 0     
-141 | _ViT_Trainer__model.transformer.layers.7.1.fn.net.3     | Linear      | 4 M   
-142 | _ViT_Trainer__model.transformer.layers.7.1.fn.net.4     | Dropout     | 0     
-143 | _ViT_Trainer__model.transformer.layers.8                | ModuleList  | 12 M  
-144 | _ViT_Trainer__model.transformer.layers.8.0              | PreNorm     | 4 M   
-145 | _ViT_Trainer__model.transformer.layers.8.0.norm         | LayerNorm   | 2 K   
-146 | _ViT_Trainer__model.transformer.layers.8.0.fn           | Attention   | 4 M   
-147 | _ViT_Trainer__model.transformer.layers.8.0.fn.to_qkv    | Linear      | 3 M   
-148 | _ViT_Trainer__model.transformer.layers.8.0.fn.to_out    | Sequential  | 1 M   
-149 | _ViT_Trainer__model.transformer.layers.8.0.fn.to_out.0  | Linear      | 1 M   
-150 | _ViT_Trainer__model.transformer.layers.8.0.fn.to_out.1  | Dropout     | 0     
-151 | _ViT_Trainer__model.transformer.layers.8.1              | PreNorm     | 8 M   
-152 | _ViT_Trainer__model.transformer.layers.8.1.norm         | LayerNorm   | 2 K   
-153 | _ViT_Trainer__model.transformer.layers.8.1.fn           | FeedForward | 8 M   
-154 | _ViT_Trainer__model.transformer.layers.8.1.fn.net       | Sequential  | 8 M   
-155 | _ViT_Trainer__model.transformer.layers.8.1.fn.net.0     | Linear      | 4 M   
-156 | _ViT_Trainer__model.transformer.layers.8.1.fn.net.1     | GELU        | 0     
-157 | _ViT_Trainer__model.transformer.layers.8.1.fn.net.2     | Dropout     | 0     
-158 | _ViT_Trainer__model.transformer.layers.8.1.fn.net.3     | Linear      | 4 M   
-159 | _ViT_Trainer__model.transformer.layers.8.1.fn.net.4     | Dropout     | 0     
-160 | _ViT_Trainer__model.transformer.layers.9                | ModuleList  | 12 M  
-161 | _ViT_Trainer__model.transformer.layers.9.0              | PreNorm     | 4 M   
-162 | _ViT_Trainer__model.transformer.layers.9.0.norm         | LayerNorm   | 2 K   
-163 | _ViT_Trainer__model.transformer.layers.9.0.fn           | Attention   | 4 M   
-164 | _ViT_Trainer__model.transformer.layers.9.0.fn.to_qkv    | Linear      | 3 M   
-165 | _ViT_Trainer__model.transformer.layers.9.0.fn.to_out    | Sequential  | 1 M   
-166 | _ViT_Trainer__model.transformer.layers.9.0.fn.to_out.0  | Linear      | 1 M   
-167 | _ViT_Trainer__model.transformer.layers.9.0.fn.to_out.1  | Dropout     | 0     
-168 | _ViT_Trainer__model.transformer.layers.9.1              | PreNorm     | 8 M   
-169 | _ViT_Trainer__model.transformer.layers.9.1.norm         | LayerNorm   | 2 K   
-170 | _ViT_Trainer__model.transformer.layers.9.1.fn           | FeedForward | 8 M   
-171 | _ViT_Trainer__model.transformer.layers.9.1.fn.net       | Sequential  | 8 M   
-172 | _ViT_Trainer__model.transformer.layers.9.1.fn.net.0     | Linear      | 4 M   
-173 | _ViT_Trainer__model.transformer.layers.9.1.fn.net.1     | GELU        | 0     
-174 | _ViT_Trainer__model.transformer.layers.9.1.fn.net.2     | Dropout     | 0     
-175 | _ViT_Trainer__model.transformer.layers.9.1.fn.net.3     | Linear      | 4 M   
-176 | _ViT_Trainer__model.transformer.layers.9.1.fn.net.4     | Dropout     | 0     
-177 | _ViT_Trainer__model.transformer.layers.10               | ModuleList  | 12 M  
-178 | _ViT_Trainer__model.transformer.layers.10.0             | PreNorm     | 4 M   
-179 | _ViT_Trainer__model.transformer.layers.10.0.norm        | LayerNorm   | 2 K   
-180 | _ViT_Trainer__model.transformer.layers.10.0.fn          | Attention   | 4 M   
-181 | _ViT_Trainer__model.transformer.layers.10.0.fn.to_qkv   | Linear      | 3 M   
-182 | _ViT_Trainer__model.transformer.layers.10.0.fn.to_out   | Sequential  | 1 M   
-183 | _ViT_Trainer__model.transformer.layers.10.0.fn.to_out.0 | Linear      | 1 M   
-184 | _ViT_Trainer__model.transformer.layers.10.0.fn.to_out.1 | Dropout     | 0     
-185 | _ViT_Trainer__model.transformer.layers.10.1             | PreNorm     | 8 M   
-186 | _ViT_Trainer__model.transformer.layers.10.1.norm        | LayerNorm   | 2 K   
-187 | _ViT_Trainer__model.transformer.layers.10.1.fn          | FeedForward | 8 M   
-188 | _ViT_Trainer__model.transformer.layers.10.1.fn.net      | Sequential  | 8 M   
-189 | _ViT_Trainer__model.transformer.layers.10.1.fn.net.0    | Linear      | 4 M   
-190 | _ViT_Trainer__model.transformer.layers.10.1.fn.net.1    | GELU        | 0     
-191 | _ViT_Trainer__model.transformer.layers.10.1.fn.net.2    | Dropout     | 0     
-192 | _ViT_Trainer__model.transformer.layers.10.1.fn.net.3    | Linear      | 4 M   
-193 | _ViT_Trainer__model.transformer.layers.10.1.fn.net.4    | Dropout     | 0     
-194 | _ViT_Trainer__model.transformer.layers.11               | ModuleList  | 12 M  
-195 | _ViT_Trainer__model.transformer.layers.11.0             | PreNorm     | 4 M   
-196 | _ViT_Trainer__model.transformer.layers.11.0.norm        | LayerNorm   | 2 K   
-197 | _ViT_Trainer__model.transformer.layers.11.0.fn          | Attention   | 4 M   
-198 | _ViT_Trainer__model.transformer.layers.11.0.fn.to_qkv   | Linear      | 3 M   
-199 | _ViT_Trainer__model.transformer.layers.11.0.fn.to_out   | Sequential  | 1 M   
-200 | _ViT_Trainer__model.transformer.layers.11.0.fn.to_out.0 | Linear      | 1 M   
-201 | _ViT_Trainer__model.transformer.layers.11.0.fn.to_out.1 | Dropout     | 0     
-202 | _ViT_Trainer__model.transformer.layers.11.1             | PreNorm     | 8 M   
-203 | _ViT_Trainer__model.transformer.layers.11.1.norm        | LayerNorm   | 2 K   
-204 | _ViT_Trainer__model.transformer.layers.11.1.fn          | FeedForward | 8 M   
-205 | _ViT_Trainer__model.transformer.layers.11.1.fn.net      | Sequential  | 8 M   
-206 | _ViT_Trainer__model.transformer.layers.11.1.fn.net.0    | Linear      | 4 M   
-207 | _ViT_Trainer__model.transformer.layers.11.1.fn.net.1    | GELU        | 0     
-208 | _ViT_Trainer__model.transformer.layers.11.1.fn.net.2    | Dropout     | 0     
-209 | _ViT_Trainer__model.transformer.layers.11.1.fn.net.3    | Linear      | 4 M   
-210 | _ViT_Trainer__model.transformer.layers.11.1.fn.net.4    | Dropout     | 0     
-211 | _ViT_Trainer__model.transformer.layers.12               | ModuleList  | 12 M  
-212 | _ViT_Trainer__model.transformer.layers.12.0             | PreNorm     | 4 M   
-213 | _ViT_Trainer__model.transformer.layers.12.0.norm        | LayerNorm   | 2 K   
-214 | _ViT_Trainer__model.transformer.layers.12.0.fn          | Attention   | 4 M   
-215 | _ViT_Trainer__model.transformer.layers.12.0.fn.to_qkv   | Linear      | 3 M   
-216 | _ViT_Trainer__model.transformer.layers.12.0.fn.to_out   | Sequential  | 1 M   
-217 | _ViT_Trainer__model.transformer.layers.12.0.fn.to_out.0 | Linear      | 1 M   
-218 | _ViT_Trainer__model.transformer.layers.12.0.fn.to_out.1 | Dropout     | 0     
-219 | _ViT_Trainer__model.transformer.layers.12.1             | PreNorm     | 8 M   
-220 | _ViT_Trainer__model.transformer.layers.12.1.norm        | LayerNorm   | 2 K   
-221 | _ViT_Trainer__model.transformer.layers.12.1.fn          | FeedForward | 8 M   
-222 | _ViT_Trainer__model.transformer.layers.12.1.fn.net      | Sequential  | 8 M   
-223 | _ViT_Trainer__model.transformer.layers.12.1.fn.net.0    | Linear      | 4 M   
-224 | _ViT_Trainer__model.transformer.layers.12.1.fn.net.1    | GELU        | 0     
-225 | _ViT_Trainer__model.transformer.layers.12.1.fn.net.2    | Dropout     | 0     
-226 | _ViT_Trainer__model.transformer.layers.12.1.fn.net.3    | Linear      | 4 M   
-227 | _ViT_Trainer__model.transformer.layers.12.1.fn.net.4    | Dropout     | 0     
-228 | _ViT_Trainer__model.transformer.layers.13               | ModuleList  | 12 M  
-229 | _ViT_Trainer__model.transformer.layers.13.0             | PreNorm     | 4 M   
-230 | _ViT_Trainer__model.transformer.layers.13.0.norm        | LayerNorm   | 2 K   
-231 | _ViT_Trainer__model.transformer.layers.13.0.fn          | Attention   | 4 M   
-232 | _ViT_Trainer__model.transformer.layers.13.0.fn.to_qkv   | Linear      | 3 M   
-233 | _ViT_Trainer__model.transformer.layers.13.0.fn.to_out   | Sequential  | 1 M   
-234 | _ViT_Trainer__model.transformer.layers.13.0.fn.to_out.0 | Linear      | 1 M   
-235 | _ViT_Trainer__model.transformer.layers.13.0.fn.to_out.1 | Dropout     | 0     
-236 | _ViT_Trainer__model.transformer.layers.13.1             | PreNorm     | 8 M   
-237 | _ViT_Trainer__model.transformer.layers.13.1.norm        | LayerNorm   | 2 K   
-238 | _ViT_Trainer__model.transformer.layers.13.1.fn          | FeedForward | 8 M   
-239 | _ViT_Trainer__model.transformer.layers.13.1.fn.net      | Sequential  | 8 M   
-240 | _ViT_Trainer__model.transformer.layers.13.1.fn.net.0    | Linear      | 4 M   
-241 | _ViT_Trainer__model.transformer.layers.13.1.fn.net.1    | GELU        | 0     
-242 | _ViT_Trainer__model.transformer.layers.13.1.fn.net.2    | Dropout     | 0     
-243 | _ViT_Trainer__model.transformer.layers.13.1.fn.net.3    | Linear      | 4 M   
-244 | _ViT_Trainer__model.transformer.layers.13.1.fn.net.4    | Dropout     | 0     
-245 | _ViT_Trainer__model.transformer.layers.14               | ModuleList  | 12 M  
-246 | _ViT_Trainer__model.transformer.layers.14.0             | PreNorm     | 4 M   
-247 | _ViT_Trainer__model.transformer.layers.14.0.norm        | LayerNorm   | 2 K   
-248 | _ViT_Trainer__model.transformer.layers.14.0.fn          | Attention   | 4 M   
-249 | _ViT_Trainer__model.transformer.layers.14.0.fn.to_qkv   | Linear      | 3 M   
-250 | _ViT_Trainer__model.transformer.layers.14.0.fn.to_out   | Sequential  | 1 M   
-251 | _ViT_Trainer__model.transformer.layers.14.0.fn.to_out.0 | Linear      | 1 M   
-252 | _ViT_Trainer__model.transformer.layers.14.0.fn.to_out.1 | Dropout     | 0     
-253 | _ViT_Trainer__model.transformer.layers.14.1             | PreNorm     | 8 M   
-254 | _ViT_Trainer__model.transformer.layers.14.1.norm        | LayerNorm   | 2 K   
-255 | _ViT_Trainer__model.transformer.layers.14.1.fn          | FeedForward | 8 M   
-256 | _ViT_Trainer__model.transformer.layers.14.1.fn.net      | Sequential  | 8 M   
-257 | _ViT_Trainer__model.transformer.layers.14.1.fn.net.0    | Linear      | 4 M   
-258 | _ViT_Trainer__model.transformer.layers.14.1.fn.net.1    | GELU        | 0     
-259 | _ViT_Trainer__model.transformer.layers.14.1.fn.net.2    | Dropout     | 0     
-260 | _ViT_Trainer__model.transformer.layers.14.1.fn.net.3    | Linear      | 4 M   
-261 | _ViT_Trainer__model.transformer.layers.14.1.fn.net.4    | Dropout     | 0     
-262 | _ViT_Trainer__model.transformer.layers.15               | ModuleList  | 12 M  
-263 | _ViT_Trainer__model.transformer.layers.15.0             | PreNorm     | 4 M   
-264 | _ViT_Trainer__model.transformer.layers.15.0.norm        | LayerNorm   | 2 K   
-265 | _ViT_Trainer__model.transformer.layers.15.0.fn          | Attention   | 4 M   
-266 | _ViT_Trainer__model.transformer.layers.15.0.fn.to_qkv   | Linear      | 3 M   
-267 | _ViT_Trainer__model.transformer.layers.15.0.fn.to_out   | Sequential  | 1 M   
-268 | _ViT_Trainer__model.transformer.layers.15.0.fn.to_out.0 | Linear      | 1 M   
-269 | _ViT_Trainer__model.transformer.layers.15.0.fn.to_out.1 | Dropout     | 0     
-270 | _ViT_Trainer__model.transformer.layers.15.1             | PreNorm     | 8 M   
-271 | _ViT_Trainer__model.transformer.layers.15.1.norm        | LayerNorm   | 2 K   
-272 | _ViT_Trainer__model.transformer.layers.15.1.fn          | FeedForward | 8 M   
-273 | _ViT_Trainer__model.transformer.layers.15.1.fn.net      | Sequential  | 8 M   
-274 | _ViT_Trainer__model.transformer.layers.15.1.fn.net.0    | Linear      | 4 M   
-275 | _ViT_Trainer__model.transformer.layers.15.1.fn.net.1    | GELU        | 0     
-276 | _ViT_Trainer__model.transformer.layers.15.1.fn.net.2    | Dropout     | 0     
-277 | _ViT_Trainer__model.transformer.layers.15.1.fn.net.3    | Linear      | 4 M   
-278 | _ViT_Trainer__model.transformer.layers.15.1.fn.net.4    | Dropout     | 0     
-279 | _ViT_Trainer__model.transformer.layers.16               | ModuleList  | 12 M  
-280 | _ViT_Trainer__model.transformer.layers.16.0             | PreNorm     | 4 M   
-281 | _ViT_Trainer__model.transformer.layers.16.0.norm        | LayerNorm   | 2 K   
-282 | _ViT_Trainer__model.transformer.layers.16.0.fn          | Attention   | 4 M   
-283 | _ViT_Trainer__model.transformer.layers.16.0.fn.to_qkv   | Linear      | 3 M   
-284 | _ViT_Trainer__model.transformer.layers.16.0.fn.to_out   | Sequential  | 1 M   
-285 | _ViT_Trainer__model.transformer.layers.16.0.fn.to_out.0 | Linear      | 1 M   
-286 | _ViT_Trainer__model.transformer.layers.16.0.fn.to_out.1 | Dropout     | 0     
-287 | _ViT_Trainer__model.transformer.layers.16.1             | PreNorm     | 8 M   
-288 | _ViT_Trainer__model.transformer.layers.16.1.norm        | LayerNorm   | 2 K   
-289 | _ViT_Trainer__model.transformer.layers.16.1.fn          | FeedForward | 8 M   
-290 | _ViT_Trainer__model.transformer.layers.16.1.fn.net      | Sequential  | 8 M   
-291 | _ViT_Trainer__model.transformer.layers.16.1.fn.net.0    | Linear      | 4 M   
-292 | _ViT_Trainer__model.transformer.layers.16.1.fn.net.1    | GELU        | 0     
-293 | _ViT_Trainer__model.transformer.layers.16.1.fn.net.2    | Dropout     | 0     
-294 | _ViT_Trainer__model.transformer.layers.16.1.fn.net.3    | Linear      | 4 M   
-295 | _ViT_Trainer__model.transformer.layers.16.1.fn.net.4    | Dropout     | 0     
-296 | _ViT_Trainer__model.transformer.layers.17               | ModuleList  | 12 M  
-297 | _ViT_Trainer__model.transformer.layers.17.0             | PreNorm     | 4 M   
-298 | _ViT_Trainer__model.transformer.layers.17.0.norm        | LayerNorm   | 2 K   
-299 | _ViT_Trainer__model.transformer.layers.17.0.fn          | Attention   | 4 M   
-300 | _ViT_Trainer__model.transformer.layers.17.0.fn.to_qkv   | Linear      | 3 M   
-301 | _ViT_Trainer__model.transformer.layers.17.0.fn.to_out   | Sequential  | 1 M   
-302 | _ViT_Trainer__model.transformer.layers.17.0.fn.to_out.0 | Linear      | 1 M   
-303 | _ViT_Trainer__model.transformer.layers.17.0.fn.to_out.1 | Dropout     | 0     
-304 | _ViT_Trainer__model.transformer.layers.17.1             | PreNorm     | 8 M   
-305 | _ViT_Trainer__model.transformer.layers.17.1.norm        | LayerNorm   | 2 K   
-306 | _ViT_Trainer__model.transformer.layers.17.1.fn          | FeedForward | 8 M   
-307 | _ViT_Trainer__model.transformer.layers.17.1.fn.net      | Sequential  | 8 M   
-308 | _ViT_Trainer__model.transformer.layers.17.1.fn.net.0    | Linear      | 4 M   
-309 | _ViT_Trainer__model.transformer.layers.17.1.fn.net.1    | GELU        | 0     
-310 | _ViT_Trainer__model.transformer.layers.17.1.fn.net.2    | Dropout     | 0     
-311 | _ViT_Trainer__model.transformer.layers.17.1.fn.net.3    | Linear      | 4 M   
-312 | _ViT_Trainer__model.transformer.layers.17.1.fn.net.4    | Dropout     | 0     
-313 | _ViT_Trainer__model.transformer.layers.18               | ModuleList  | 12 M  
-314 | _ViT_Trainer__model.transformer.layers.18.0             | PreNorm     | 4 M   
-315 | _ViT_Trainer__model.transformer.layers.18.0.norm        | LayerNorm   | 2 K   
-316 | _ViT_Trainer__model.transformer.layers.18.0.fn          | Attention   | 4 M   
-317 | _ViT_Trainer__model.transformer.layers.18.0.fn.to_qkv   | Linear      | 3 M   
-318 | _ViT_Trainer__model.transformer.layers.18.0.fn.to_out   | Sequential  | 1 M   
-319 | _ViT_Trainer__model.transformer.layers.18.0.fn.to_out.0 | Linear      | 1 M   
-320 | _ViT_Trainer__model.transformer.layers.18.0.fn.to_out.1 | Dropout     | 0     
-321 | _ViT_Trainer__model.transformer.layers.18.1             | PreNorm     | 8 M   
-322 | _ViT_Trainer__model.transformer.layers.18.1.norm        | LayerNorm   | 2 K   
-323 | _ViT_Trainer__model.transformer.layers.18.1.fn          | FeedForward | 8 M   
-324 | _ViT_Trainer__model.transformer.layers.18.1.fn.net      | Sequential  | 8 M   
-325 | _ViT_Trainer__model.transformer.layers.18.1.fn.net.0    | Linear      | 4 M   
-326 | _ViT_Trainer__model.transformer.layers.18.1.fn.net.1    | GELU        | 0     
-327 | _ViT_Trainer__model.transformer.layers.18.1.fn.net.2    | Dropout     | 0     
-328 | _ViT_Trainer__model.transformer.layers.18.1.fn.net.3    | Linear      | 4 M   
-329 | _ViT_Trainer__model.transformer.layers.18.1.fn.net.4    | Dropout     | 0     
-330 | _ViT_Trainer__model.transformer.layers.19               | ModuleList  | 12 M  
-331 | _ViT_Trainer__model.transformer.layers.19.0             | PreNorm     | 4 M   
-332 | _ViT_Trainer__model.transformer.layers.19.0.norm        | LayerNorm   | 2 K   
-333 | _ViT_Trainer__model.transformer.layers.19.0.fn          | Attention   | 4 M   
-334 | _ViT_Trainer__model.transformer.layers.19.0.fn.to_qkv   | Linear      | 3 M   
-335 | _ViT_Trainer__model.transformer.layers.19.0.fn.to_out   | Sequential  | 1 M   
-336 | _ViT_Trainer__model.transformer.layers.19.0.fn.to_out.0 | Linear      | 1 M   
-337 | _ViT_Trainer__model.transformer.layers.19.0.fn.to_out.1 | Dropout     | 0     
-338 | _ViT_Trainer__model.transformer.layers.19.1             | PreNorm     | 8 M   
-339 | _ViT_Trainer__model.transformer.layers.19.1.norm        | LayerNorm   | 2 K   
-340 | _ViT_Trainer__model.transformer.layers.19.1.fn          | FeedForward | 8 M   
-341 | _ViT_Trainer__model.transformer.layers.19.1.fn.net      | Sequential  | 8 M   
-342 | _ViT_Trainer__model.transformer.layers.19.1.fn.net.0    | Linear      | 4 M   
-343 | _ViT_Trainer__model.transformer.layers.19.1.fn.net.1    | GELU        | 0     
-344 | _ViT_Trainer__model.transformer.layers.19.1.fn.net.2    | Dropout     | 0     
-345 | _ViT_Trainer__model.transformer.layers.19.1.fn.net.3    | Linear      | 4 M   
-346 | _ViT_Trainer__model.transformer.layers.19.1.fn.net.4    | Dropout     | 0     
-347 | _ViT_Trainer__model.transformer.layers.20               | ModuleList  | 12 M  
-348 | _ViT_Trainer__model.transformer.layers.20.0             | PreNorm     | 4 M   
-349 | _ViT_Trainer__model.transformer.layers.20.0.norm        | LayerNorm   | 2 K   
-350 | _ViT_Trainer__model.transformer.layers.20.0.fn          | Attention   | 4 M   
-351 | _ViT_Trainer__model.transformer.layers.20.0.fn.to_qkv   | Linear      | 3 M   
-352 | _ViT_Trainer__model.transformer.layers.20.0.fn.to_out   | Sequential  | 1 M   
-353 | _ViT_Trainer__model.transformer.layers.20.0.fn.to_out.0 | Linear      | 1 M   
-354 | _ViT_Trainer__model.transformer.layers.20.0.fn.to_out.1 | Dropout     | 0     
-355 | _ViT_Trainer__model.transformer.layers.20.1             | PreNorm     | 8 M   
-356 | _ViT_Trainer__model.transformer.layers.20.1.norm        | LayerNorm   | 2 K   
-357 | _ViT_Trainer__model.transformer.layers.20.1.fn          | FeedForward | 8 M   
-358 | _ViT_Trainer__model.transformer.layers.20.1.fn.net      | Sequential  | 8 M   
-359 | _ViT_Trainer__model.transformer.layers.20.1.fn.net.0    | Linear      | 4 M   
-360 | _ViT_Trainer__model.transformer.layers.20.1.fn.net.1    | GELU        | 0     
-361 | _ViT_Trainer__model.transformer.layers.20.1.fn.net.2    | Dropout     | 0     
-362 | _ViT_Trainer__model.transformer.layers.20.1.fn.net.3    | Linear      | 4 M   
-363 | _ViT_Trainer__model.transformer.layers.20.1.fn.net.4    | Dropout     | 0     
-364 | _ViT_Trainer__model.transformer.layers.21               | ModuleList  | 12 M  
-365 | _ViT_Trainer__model.transformer.layers.21.0             | PreNorm     | 4 M   
-366 | _ViT_Trainer__model.transformer.layers.21.0.norm        | LayerNorm   | 2 K   
-367 | _ViT_Trainer__model.transformer.layers.21.0.fn          | Attention   | 4 M   
-368 | _ViT_Trainer__model.transformer.layers.21.0.fn.to_qkv   | Linear      | 3 M   
-369 | _ViT_Trainer__model.transformer.layers.21.0.fn.to_out   | Sequential  | 1 M   
-370 | _ViT_Trainer__model.transformer.layers.21.0.fn.to_out.0 | Linear      | 1 M   
-371 | _ViT_Trainer__model.transformer.layers.21.0.fn.to_out.1 | Dropout     | 0     
-372 | _ViT_Trainer__model.transformer.layers.21.1             | PreNorm     | 8 M   
-373 | _ViT_Trainer__model.transformer.layers.21.1.norm        | LayerNorm   | 2 K   
-374 | _ViT_Trainer__model.transformer.layers.21.1.fn          | FeedForward | 8 M   
-375 | _ViT_Trainer__model.transformer.layers.21.1.fn.net      | Sequential  | 8 M   
-376 | _ViT_Trainer__model.transformer.layers.21.1.fn.net.0    | Linear      | 4 M   
-377 | _ViT_Trainer__model.transformer.layers.21.1.fn.net.1    | GELU        | 0     
-378 | _ViT_Trainer__model.transformer.layers.21.1.fn.net.2    | Dropout     | 0     
-379 | _ViT_Trainer__model.transformer.layers.21.1.fn.net.3    | Linear      | 4 M   
-380 | _ViT_Trainer__model.transformer.layers.21.1.fn.net.4    | Dropout     | 0     
-381 | _ViT_Trainer__model.transformer.layers.22               | ModuleList  | 12 M  
-382 | _ViT_Trainer__model.transformer.layers.22.0             | PreNorm     | 4 M   
-383 | _ViT_Trainer__model.transformer.layers.22.0.norm        | LayerNorm   | 2 K   
-384 | _ViT_Trainer__model.transformer.layers.22.0.fn          | Attention   | 4 M   
-385 | _ViT_Trainer__model.transformer.layers.22.0.fn.to_qkv   | Linear      | 3 M   
-386 | _ViT_Trainer__model.transformer.layers.22.0.fn.to_out   | Sequential  | 1 M   
-387 | _ViT_Trainer__model.transformer.layers.22.0.fn.to_out.0 | Linear      | 1 M   
-388 | _ViT_Trainer__model.transformer.layers.22.0.fn.to_out.1 | Dropout     | 0     
-389 | _ViT_Trainer__model.transformer.layers.22.1             | PreNorm     | 8 M   
-390 | _ViT_Trainer__model.transformer.layers.22.1.norm        | LayerNorm   | 2 K   
-391 | _ViT_Trainer__model.transformer.layers.22.1.fn          | FeedForward | 8 M   
-392 | _ViT_Trainer__model.transformer.layers.22.1.fn.net      | Sequential  | 8 M   
-393 | _ViT_Trainer__model.transformer.layers.22.1.fn.net.0    | Linear      | 4 M   
-394 | _ViT_Trainer__model.transformer.layers.22.1.fn.net.1    | GELU        | 0     
-395 | _ViT_Trainer__model.transformer.layers.22.1.fn.net.2    | Dropout     | 0     
-396 | _ViT_Trainer__model.transformer.layers.22.1.fn.net.3    | Linear      | 4 M   
-397 | _ViT_Trainer__model.transformer.layers.22.1.fn.net.4    | Dropout     | 0     
-398 | _ViT_Trainer__model.transformer.layers.23               | ModuleList  | 12 M  
-399 | _ViT_Trainer__model.transformer.layers.23.0             | PreNorm     | 4 M   
-400 | _ViT_Trainer__model.transformer.layers.23.0.norm        | LayerNorm   | 2 K   
-401 | _ViT_Trainer__model.transformer.layers.23.0.fn          | Attention   | 4 M   
-402 | _ViT_Trainer__model.transformer.layers.23.0.fn.to_qkv   | Linear      | 3 M   
-403 | _ViT_Trainer__model.transformer.layers.23.0.fn.to_out   | Sequential  | 1 M   
-404 | _ViT_Trainer__model.transformer.layers.23.0.fn.to_out.0 | Linear      | 1 M   
-405 | _ViT_Trainer__model.transformer.layers.23.0.fn.to_out.1 | Dropout     | 0     
-406 | _ViT_Trainer__model.transformer.layers.23.1             | PreNorm     | 8 M   
-407 | _ViT_Trainer__model.transformer.layers.23.1.norm        | LayerNorm   | 2 K   
-408 | _ViT_Trainer__model.transformer.layers.23.1.fn          | FeedForward | 8 M   
-409 | _ViT_Trainer__model.transformer.layers.23.1.fn.net      | Sequential  | 8 M   
-410 | _ViT_Trainer__model.transformer.layers.23.1.fn.net.0    | Linear      | 4 M   
-411 | _ViT_Trainer__model.transformer.layers.23.1.fn.net.1    | GELU        | 0     
-412 | _ViT_Trainer__model.transformer.layers.23.1.fn.net.2    | Dropout     | 0     
-413 | _ViT_Trainer__model.transformer.layers.23.1.fn.net.3    | Linear      | 4 M   
-414 | _ViT_Trainer__model.transformer.layers.23.1.fn.net.4    | Dropout     | 0     
-415 | _ViT_Trainer__model.to_latent                           | Identity    | 0     
-416 | _ViT_Trainer__model.mlp_head                            | Sequential  | 12 K  
-417 | _ViT_Trainer__model.mlp_head.0                          | LayerNorm   | 2 K   
-418 | _ViT_Trainer__model.mlp_head.1                          | Linear      | 10 K  
-Files already downloaded and verified
-Files already downloaded and verified
-Validation sanity check: 0it [00:00, ?it/s]WARNING:matplotlib.image:Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-WARNING:matplotlib.image:Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-Validation sanity check:  20%|██        | 1/5 [00:03<00:15,  3.94s/it]Validation sanity check:  40%|████      | 2/5 [00:04<00:05,  1.92s/it]Validation sanity check:  60%|██████    | 3/5 [00:04<00:02,  1.27s/it]Validation sanity check:  80%|████████  | 4/5 [00:05<00:00,  1.03it/s]Validation sanity check: 100%|██████████| 5/5 [00:05<00:00,  1.24it/s]                                                                      Training: 0it [00:00, ?it/s]Training:   0%|          | 0/392 [00:00<?, ?it/s]Epoch 1:   0%|          | 0/392 [00:00<?, ?it/s] /scratch/nsk367/anaconda3/envs/vit/lib/python3.8/site-packages/torch/utils/data/dataloader.py:474: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
-  warnings.warn(_create_warning_msg(
-WARNING:matplotlib.image:Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-WARNING:matplotlib.image:Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-Epoch 1:   0%|          | 1/392 [00:02<15:59,  2.45s/it]Epoch 1:   0%|          | 1/392 [00:02<15:59,  2.45s/it, loss=2.509, v_num=6663164]Epoch 1:   1%|          | 2/392 [00:03<12:57,  1.99s/it, loss=2.509, v_num=6663164]Epoch 1:   1%|          | 2/392 [00:03<12:57,  1.99s/it, loss=5.022, v_num=6663164]Epoch 1:   1%|          | 3/392 [00:05<11:56,  1.84s/it, loss=5.022, v_num=6663164]Epoch 1:   1%|          | 3/392 [00:05<11:56,  1.84s/it, loss=5.829, v_num=6663164]Epoch 1:   1%|          | 4/392 [00:07<11:24,  1.76s/it, loss=5.829, v_num=6663164]Epoch 1:   1%|          | 4/392 [00:07<11:24,  1.76s/it, loss=5.270, v_num=6663164]Epoch 1:   1%|▏         | 5/392 [00:08<11:04,  1.72s/it, loss=5.270, v_num=6663164]Epoch 1:   1%|▏         | 5/392 [00:08<11:04,  1.72s/it, loss=5.110, v_num=6663164]Epoch 1:   2%|▏         | 6/392 [00:10<10:52,  1.69s/it, loss=5.110, v_num=6663164]Epoch 1:   2%|▏         | 6/392 [00:10<10:52,  1.69s/it, loss=4.862, v_num=6663164]Epoch 1:   2%|▏         | 7/392 [00:11<10:42,  1.67s/it, loss=4.862, v_num=6663164]Epoch 1:   2%|▏         | 7/392 [00:11<10:42,  1.67s/it, loss=4.682, v_num=6663164]Epoch 1:   2%|▏         | 8/392 [00:13<10:34,  1.65s/it, loss=4.682, v_num=6663164]Epoch 1:   2%|▏         | 8/392 [00:13<10:34,  1.65s/it, loss=4.494, v_num=6663164]Epoch 1:   2%|▏         | 9/392 [00:14<10:27,  1.64s/it, loss=4.494, v_num=6663164]Epoch 1:   2%|▏         | 9/392 [00:14<10:27,  1.64s/it, loss=4.345, v_num=6663164]Epoch 1:   3%|▎         | 10/392 [00:16<10:22,  1.63s/it, loss=4.345, v_num=6663164]Epoch 1:   3%|▎         | 10/392 [00:16<10:22,  1.63s/it, loss=4.180, v_num=6663164]Epoch 1:   3%|▎         | 11/392 [00:17<10:17,  1.62s/it, loss=4.180, v_num=6663164]Epoch 1:   3%|▎         | 11/392 [00:17<10:17,  1.62s/it, loss=4.037, v_num=6663164]Epoch 1:   3%|▎         | 12/392 [00:19<10:13,  1.61s/it, loss=4.037, v_num=6663164]Epoch 1:   3%|▎         | 12/392 [00:19<10:13,  1.61s/it, loss=3.912, v_num=6663164]Epoch 1:   3%|▎         | 13/392 [00:20<10:09,  1.61s/it, loss=3.912, v_num=6663164]Epoch 1:   3%|▎         | 13/392 [00:20<10:09,  1.61s/it, loss=3.813, v_num=6663164]Epoch 1:   4%|▎         | 14/392 [00:22<10:06,  1.60s/it, loss=3.813, v_num=6663164]Epoch 1:   4%|▎         | 14/392 [00:22<10:06,  1.60s/it, loss=3.727, v_num=6663164]Epoch 1:   4%|▍         | 15/392 [00:24<10:03,  1.60s/it, loss=3.727, v_num=6663164]Epoch 1:   4%|▍         | 15/392 [00:24<10:03,  1.60s/it, loss=3.649, v_num=6663164]Epoch 1:   4%|▍         | 16/392 [00:25<10:00,  1.60s/it, loss=3.649, v_num=6663164]Epoch 1:   4%|▍         | 16/392 [00:25<10:00,  1.60s/it, loss=3.574, v_num=6663164]Epoch 1:   4%|▍         | 17/392 [00:27<09:57,  1.59s/it, loss=3.574, v_num=6663164]Epoch 1:   4%|▍         | 17/392 [00:27<09:58,  1.59s/it, loss=3.511, v_num=6663164]Epoch 1:   5%|▍         | 18/392 [00:28<09:55,  1.59s/it, loss=3.511, v_num=6663164]Epoch 1:   5%|▍         | 18/392 [00:28<09:55,  1.59s/it, loss=3.457, v_num=6663164]Epoch 1:   5%|▍         | 19/392 [00:30<09:53,  1.59s/it, loss=3.457, v_num=6663164]Epoch 1:   5%|▍         | 19/392 [00:30<09:53,  1.59s/it, loss=3.407, v_num=6663164]Epoch 1:   5%|▌         | 20/392 [00:31<09:50,  1.59s/it, loss=3.407, v_num=6663164]Epoch 1:   5%|▌         | 20/392 [00:31<09:50,  1.59s/it, loss=3.360, v_num=6663164]Epoch 1:   5%|▌         | 21/392 [00:33<09:48,  1.59s/it, loss=3.360, v_num=6663164]Epoch 1:   5%|▌         | 21/392 [00:33<09:48,  1.59s/it, loss=3.354, v_num=6663164]Epoch 1:   6%|▌         | 22/392 [00:34<09:46,  1.59s/it, loss=3.354, v_num=6663164]Epoch 1:   6%|▌         | 22/392 [00:34<09:46,  1.59s/it, loss=3.097, v_num=6663164]Epoch 1:   6%|▌         | 23/392 [00:36<09:44,  1.58s/it, loss=3.097, v_num=6663164]Epoch 1:   6%|▌         | 23/392 [00:36<09:44,  1.58s/it, loss=2.843, v_num=6663164]Epoch 1:   6%|▌         | 24/392 [00:38<09:42,  1.58s/it, loss=2.843, v_num=6663164]Epoch 1:   6%|▌         | 24/392 [00:38<09:42,  1.58s/it, loss=2.785, v_num=6663164]Epoch 1:   6%|▋         | 25/392 [00:39<09:40,  1.58s/it, loss=2.785, v_num=6663164]Epoch 1:   6%|▋         | 25/392 [00:39<09:40,  1.58s/it, loss=2.680, v_num=6663164]Epoch 1:   7%|▋         | 26/392 [00:41<09:38,  1.58s/it, loss=2.680, v_num=6663164]Epoch 1:   7%|▋         | 26/392 [00:41<09:38,  1.58s/it, loss=2.620, v_num=6663164]Epoch 1:   7%|▋         | 27/392 [00:42<09:37,  1.58s/it, loss=2.620, v_num=6663164]Epoch 1:   7%|▋         | 27/392 [00:42<09:37,  1.58s/it, loss=2.561, v_num=6663164]Epoch 1:   7%|▋         | 28/392 [00:44<09:35,  1.58s/it, loss=2.561, v_num=6663164]Epoch 1:   7%|▋         | 28/392 [00:44<09:35,  1.58s/it, loss=2.525, v_num=6663164]Epoch 1:   7%|▋         | 29/392 [00:45<09:33,  1.58s/it, loss=2.525, v_num=6663164]Epoch 1:   7%|▋         | 29/392 [00:45<09:33,  1.58s/it, loss=2.490, v_num=6663164]Epoch 1:   8%|▊         | 30/392 [00:47<09:31,  1.58s/it, loss=2.490, v_num=6663164]Epoch 1:   8%|▊         | 30/392 [00:47<09:31,  1.58s/it, loss=2.476, v_num=6663164]Epoch 1:   8%|▊         | 31/392 [00:48<09:29,  1.58s/it, loss=2.476, v_num=6663164]Epoch 1:   8%|▊         | 31/392 [00:48<09:29,  1.58s/it, loss=2.464, v_num=6663164]Epoch 1:   8%|▊         | 32/392 [00:50<09:28,  1.58s/it, loss=2.464, v_num=6663164]Epoch 1:   8%|▊         | 32/392 [00:50<09:28,  1.58s/it, loss=2.453, v_num=6663164]Epoch 1:   8%|▊         | 33/392 [00:52<09:26,  1.58s/it, loss=2.453, v_num=6663164]Epoch 1:   8%|▊         | 33/392 [00:52<09:26,  1.58s/it, loss=2.438, v_num=6663164]Epoch 1:   9%|▊         | 34/392 [00:53<09:24,  1.58s/it, loss=2.438, v_num=6663164]Epoch 1:   9%|▊         | 34/392 [00:53<09:24,  1.58s/it, loss=2.423, v_num=6663164]Epoch 1:   9%|▉         | 35/392 [00:55<09:22,  1.58s/it, loss=2.423, v_num=6663164]Epoch 1:   9%|▉         | 35/392 [00:55<09:22,  1.58s/it, loss=2.410, v_num=6663164]Epoch 1:   9%|▉         | 36/392 [00:56<09:21,  1.58s/it, loss=2.410, v_num=6663164]Epoch 1:   9%|▉         | 36/392 [00:56<09:21,  1.58s/it, loss=2.404, v_num=6663164]Epoch 1:   9%|▉         | 37/392 [00:58<09:19,  1.58s/it, loss=2.404, v_num=6663164]Epoch 1:   9%|▉         | 37/392 [00:58<09:19,  1.58s/it, loss=2.398, v_num=6663164]Epoch 1:  10%|▉         | 38/392 [00:59<09:17,  1.58s/it, loss=2.398, v_num=6663164]Epoch 1:  10%|▉         | 38/392 [00:59<09:17,  1.58s/it, loss=2.388, v_num=6663164]Epoch 1:  10%|▉         | 39/392 [01:01<09:16,  1.58s/it, loss=2.388, v_num=6663164]Epoch 1:  10%|▉         | 39/392 [01:01<09:16,  1.58s/it, loss=2.378, v_num=6663164]Epoch 1:  10%|█         | 40/392 [01:03<09:14,  1.58s/it, loss=2.378, v_num=6663164]Epoch 1:  10%|█         | 40/392 [01:03<09:14,  1.58s/it, loss=2.373, v_num=6663164]Epoch 1:  10%|█         | 41/392 [01:04<09:13,  1.58s/it, loss=2.373, v_num=6663164]Epoch 1:  10%|█         | 41/392 [01:04<09:13,  1.58s/it, loss=2.369, v_num=6663164]Epoch 1:  11%|█         | 42/392 [01:06<09:11,  1.58s/it, loss=2.369, v_num=6663164]Epoch 1:  11%|█         | 42/392 [01:06<09:11,  1.58s/it, loss=2.365, v_num=6663164]Epoch 1:  11%|█         | 43/392 [01:07<09:09,  1.58s/it, loss=2.365, v_num=6663164]Epoch 1:  11%|█         | 43/392 [01:07<09:09,  1.58s/it, loss=2.361, v_num=6663164]Epoch 1:  11%|█         | 44/392 [01:09<09:08,  1.58s/it, loss=2.361, v_num=6663164]Epoch 1:  11%|█         | 44/392 [01:09<09:08,  1.58s/it, loss=2.355, v_num=6663164]Epoch 1:  11%|█▏        | 45/392 [01:10<09:06,  1.58s/it, loss=2.355, v_num=6663164]Epoch 1:  11%|█▏        | 45/392 [01:10<09:06,  1.58s/it, loss=2.354, v_num=6663164]Epoch 1:  12%|█▏        | 46/392 [01:12<09:04,  1.58s/it, loss=2.354, v_num=6663164]Epoch 1:  12%|█▏        | 46/392 [01:12<09:05,  1.58s/it, loss=2.351, v_num=6663164]Epoch 1:  12%|█▏        | 47/392 [01:14<09:03,  1.57s/it, loss=2.351, v_num=6663164]Epoch 1:  12%|█▏        | 47/392 [01:14<09:03,  1.58s/it, loss=2.344, v_num=6663164]Epoch 1:  12%|█▏        | 48/392 [01:15<09:01,  1.57s/it, loss=2.344, v_num=6663164]Epoch 1:  12%|█▏        | 48/392 [01:15<09:01,  1.57s/it, loss=2.337, v_num=6663164]Epoch 1:  12%|█▎        | 49/392 [01:17<09:00,  1.57s/it, loss=2.337, v_num=6663164]Epoch 1:  12%|█▎        | 49/392 [01:17<09:00,  1.57s/it, loss=2.330, v_num=6663164]Epoch 1:  13%|█▎        | 50/392 [01:18<08:58,  1.58s/it, loss=2.330, v_num=6663164]Epoch 1:  13%|█▎        | 50/392 [01:18<08:58,  1.58s/it, loss=2.323, v_num=6663164]Epoch 1:  13%|█▎        | 51/392 [01:20<08:57,  1.58s/it, loss=2.323, v_num=6663164]Epoch 1:  13%|█▎        | 51/392 [01:20<08:57,  1.58s/it, loss=2.319, v_num=6663164]Epoch 1:  13%|█▎        | 52/392 [01:21<08:55,  1.58s/it, loss=2.319, v_num=6663164]Epoch 1:  13%|█▎        | 52/392 [01:21<08:55,  1.58s/it, loss=2.319, v_num=6663164]Epoch 1:  14%|█▎        | 53/392 [01:23<08:53,  1.58s/it, loss=2.319, v_num=6663164]Epoch 1:  14%|█▎        | 53/392 [01:23<08:53,  1.58s/it, loss=2.319, v_num=6663164]Epoch 1:  14%|█▍        | 54/392 [01:25<08:52,  1.58s/it, loss=2.319, v_num=6663164]Epoch 1:  14%|█▍        | 54/392 [01:25<08:52,  1.58s/it, loss=2.319, v_num=6663164]Epoch 1:  14%|█▍        | 55/392 [01:26<08:50,  1.58s/it, loss=2.319, v_num=6663164]Epoch 1:  14%|█▍        | 55/392 [01:26<08:50,  1.58s/it, loss=2.320, v_num=6663164]Epoch 1:  14%|█▍        | 56/392 [01:28<08:49,  1.58s/it, loss=2.320, v_num=6663164]Epoch 1:  14%|█▍        | 56/392 [01:28<08:49,  1.58s/it, loss=2.317, v_num=6663164]Epoch 1:  15%|█▍        | 57/392 [01:29<08:47,  1.58s/it, loss=2.317, v_num=6663164]Epoch 1:  15%|█▍        | 57/392 [01:29<08:47,  1.58s/it, loss=2.315, v_num=6663164]Epoch 1:  15%|█▍        | 58/392 [01:31<08:46,  1.58s/it, loss=2.315, v_num=6663164]Epoch 1:  15%|█▍        | 58/392 [01:31<08:46,  1.58s/it, loss=2.315, v_num=6663164]Epoch 1:  15%|█▌        | 59/392 [01:32<08:44,  1.58s/it, loss=2.315, v_num=6663164]Epoch 1:  15%|█▌        | 59/392 [01:32<08:44,  1.58s/it, loss=2.313, v_num=6663164]Epoch 1:  15%|█▌        | 60/392 [01:34<08:42,  1.58s/it, loss=2.313, v_num=6663164]Epoch 1:  15%|█▌        | 60/392 [01:34<08:42,  1.58s/it, loss=2.311, v_num=6663164]Epoch 1:  16%|█▌        | 61/392 [01:36<08:41,  1.58s/it, loss=2.311, v_num=6663164]Epoch 1:  16%|█▌        | 61/392 [01:36<08:41,  1.58s/it, loss=2.311, v_num=6663164]Epoch 1:  16%|█▌        | 62/392 [01:37<08:39,  1.58s/it, loss=2.311, v_num=6663164]Epoch 1:  16%|█▌        | 62/392 [01:37<08:39,  1.58s/it, loss=2.309, v_num=6663164]Epoch 1:  16%|█▌        | 63/392 [01:39<08:38,  1.58s/it, loss=2.309, v_num=6663164]Epoch 1:  16%|█▌        | 63/392 [01:39<08:38,  1.58s/it, loss=2.310, v_num=6663164]Epoch 1:  16%|█▋        | 64/392 [01:40<08:36,  1.58s/it, loss=2.310, v_num=6663164]Epoch 1:  16%|█▋        | 64/392 [01:40<08:36,  1.58s/it, loss=2.309, v_num=6663164]Epoch 1:  17%|█▋        | 65/392 [01:42<08:35,  1.58s/it, loss=2.309, v_num=6663164]Epoch 1:  17%|█▋        | 65/392 [01:42<08:35,  1.58s/it, loss=2.304, v_num=6663164]Epoch 1:  17%|█▋        | 66/392 [01:43<08:33,  1.58s/it, loss=2.304, v_num=6663164]Epoch 1:  17%|█▋        | 66/392 [01:43<08:33,  1.58s/it, loss=2.296, v_num=6663164]Epoch 1:  17%|█▋        | 67/392 [01:45<08:32,  1.58s/it, loss=2.296, v_num=6663164]Epoch 1:  17%|█▋        | 67/392 [01:45<08:32,  1.58s/it, loss=2.299, v_num=6663164]Epoch 1:  17%|█▋        | 68/392 [01:47<08:30,  1.58s/it, loss=2.299, v_num=6663164]Epoch 1:  17%|█▋        | 68/392 [01:47<08:30,  1.58s/it, loss=2.296, v_num=6663164]Epoch 1:  18%|█▊        | 69/392 [01:48<08:28,  1.58s/it, loss=2.296, v_num=6663164]Epoch 1:  18%|█▊        | 69/392 [01:48<08:28,  1.58s/it, loss=2.295, v_num=6663164]Epoch 1:  18%|█▊        | 70/392 [01:50<08:27,  1.58s/it, loss=2.295, v_num=6663164]Epoch 1:  18%|█▊        | 70/392 [01:50<08:27,  1.58s/it, loss=2.291, v_num=6663164]Epoch 1:  18%|█▊        | 71/392 [01:51<08:25,  1.58s/it, loss=2.291, v_num=6663164]Epoch 1:  18%|█▊        | 71/392 [01:51<08:25,  1.58s/it, loss=2.289, v_num=6663164]Epoch 1:  18%|█▊        | 72/392 [01:53<08:24,  1.58s/it, loss=2.289, v_num=6663164]Epoch 1:  18%|█▊        | 72/392 [01:53<08:24,  1.58s/it, loss=2.287, v_num=6663164]Epoch 1:  19%|█▊        | 73/392 [01:55<08:22,  1.58s/it, loss=2.287, v_num=6663164]Epoch 1:  19%|█▊        | 73/392 [01:55<08:22,  1.58s/it, loss=2.280, v_num=6663164]Epoch 1:  19%|█▉        | 74/392 [01:56<08:21,  1.58s/it, loss=2.280, v_num=6663164]Epoch 1:  19%|█▉        | 74/392 [01:56<08:21,  1.58s/it, loss=2.277, v_num=6663164]Epoch 1:  19%|█▉        | 75/392 [01:58<08:19,  1.58s/it, loss=2.277, v_num=6663164]Epoch 1:  19%|█▉        | 75/392 [01:58<08:19,  1.58s/it, loss=2.269, v_num=6663164]Epoch 1:  19%|█▉        | 76/392 [01:59<08:18,  1.58s/it, loss=2.269, v_num=6663164]Epoch 1:  19%|█▉        | 76/392 [01:59<08:18,  1.58s/it, loss=2.266, v_num=6663164]Epoch 1:  20%|█▉        | 77/392 [02:01<08:16,  1.58s/it, loss=2.266, v_num=6663164]Epoch 1:  20%|█▉        | 77/392 [02:01<08:16,  1.58s/it, loss=2.262, v_num=6663164]Epoch 1:  20%|█▉        | 78/392 [02:02<08:14,  1.58s/it, loss=2.262, v_num=6663164]Epoch 1:  20%|█▉        | 78/392 [02:02<08:14,  1.58s/it, loss=2.256, v_num=6663164]Epoch 1:  20%|██        | 79/392 [02:04<08:13,  1.58s/it, loss=2.256, v_num=6663164]Epoch 1:  20%|██        | 79/392 [02:04<08:13,  1.58s/it, loss=2.254, v_num=6663164]Epoch 1:  20%|██        | 80/392 [02:06<08:11,  1.58s/it, loss=2.254, v_num=6663164]Epoch 1:  20%|██        | 80/392 [02:06<08:11,  1.58s/it, loss=2.245, v_num=6663164]Epoch 1:  21%|██        | 81/392 [02:07<08:10,  1.58s/it, loss=2.245, v_num=6663164]Epoch 1:  21%|██        | 81/392 [02:07<08:10,  1.58s/it, loss=2.241, v_num=6663164]Epoch 1:  21%|██        | 82/392 [02:09<08:08,  1.58s/it, loss=2.241, v_num=6663164]Epoch 1:  21%|██        | 82/392 [02:09<08:08,  1.58s/it, loss=2.235, v_num=6663164]Epoch 1:  21%|██        | 83/392 [02:10<08:07,  1.58s/it, loss=2.235, v_num=6663164]Epoch 1:  21%|██        | 83/392 [02:10<08:07,  1.58s/it, loss=2.231, v_num=6663164]Epoch 1:  21%|██▏       | 84/392 [02:12<08:05,  1.58s/it, loss=2.231, v_num=6663164]Epoch 1:  21%|██▏       | 84/392 [02:12<08:05,  1.58s/it, loss=2.221, v_num=6663164]Epoch 1:  22%|██▏       | 85/392 [02:14<08:04,  1.58s/it, loss=2.221, v_num=6663164]Epoch 1:  22%|██▏       | 85/392 [02:14<08:04,  1.58s/it, loss=2.218, v_num=6663164]Epoch 1:  22%|██▏       | 86/392 [02:15<08:02,  1.58s/it, loss=2.218, v_num=6663164]Epoch 1:  22%|██▏       | 86/392 [02:15<08:02,  1.58s/it, loss=2.216, v_num=6663164]Epoch 1:  22%|██▏       | 87/392 [02:17<08:01,  1.58s/it, loss=2.216, v_num=6663164]Epoch 1:  22%|██▏       | 87/392 [02:17<08:01,  1.58s/it, loss=2.210, v_num=6663164]Epoch 1:  22%|██▏       | 88/392 [02:18<07:59,  1.58s/it, loss=2.210, v_num=6663164]Epoch 1:  22%|██▏       | 88/392 [02:18<07:59,  1.58s/it, loss=2.205, v_num=6663164]Epoch 1:  23%|██▎       | 89/392 [02:20<07:58,  1.58s/it, loss=2.205, v_num=6663164]Epoch 1:  23%|██▎       | 89/392 [02:20<07:58,  1.58s/it, loss=2.200, v_num=6663164]Epoch 1:  23%|██▎       | 90/392 [02:22<07:56,  1.58s/it, loss=2.200, v_num=6663164]Epoch 1:  23%|██▎       | 90/392 [02:22<07:56,  1.58s/it, loss=2.195, v_num=6663164]Epoch 1:  23%|██▎       | 91/392 [02:23<07:55,  1.58s/it, loss=2.195, v_num=6663164]Epoch 1:  23%|██▎       | 91/392 [02:23<07:55,  1.58s/it, loss=2.195, v_num=6663164]Epoch 1:  23%|██▎       | 92/392 [02:25<07:53,  1.58s/it, loss=2.195, v_num=6663164]Epoch 1:  23%|██▎       | 92/392 [02:25<07:53,  1.58s/it, loss=2.196, v_num=6663164]Epoch 1:  24%|██▎       | 93/392 [02:26<07:51,  1.58s/it, loss=2.196, v_num=6663164]Epoch 1:  24%|██▎       | 93/392 [02:26<07:51,  1.58s/it, loss=2.192, v_num=6663164]Epoch 1:  24%|██▍       | 94/392 [02:28<07:50,  1.58s/it, loss=2.192, v_num=6663164]Epoch 1:  24%|██▍       | 94/392 [02:28<07:50,  1.58s/it, loss=2.182, v_num=6663164]Epoch 1:  24%|██▍       | 95/392 [02:29<07:48,  1.58s/it, loss=2.182, v_num=6663164]Epoch 1:  24%|██▍       | 95/392 [02:29<07:48,  1.58s/it, loss=2.179, v_num=6663164]Epoch 1:  24%|██▍       | 96/392 [02:31<07:47,  1.58s/it, loss=2.179, v_num=6663164]Epoch 1:  24%|██▍       | 96/392 [02:31<07:47,  1.58s/it, loss=2.177, v_num=6663164]Epoch 1:  25%|██▍       | 97/392 [02:33<07:45,  1.58s/it, loss=2.177, v_num=6663164]Epoch 1:  25%|██▍       | 97/392 [02:33<07:45,  1.58s/it, loss=2.174, v_num=6663164]Epoch 1:  25%|██▌       | 98/392 [02:34<07:44,  1.58s/it, loss=2.174, v_num=6663164]Epoch 1:  25%|██▌       | 98/392 [02:34<07:44,  1.58s/it, loss=2.168, v_num=6663164]Epoch 1:  25%|██▌       | 99/392 [02:36<07:42,  1.58s/it, loss=2.168, v_num=6663164]Epoch 1:  25%|██▌       | 99/392 [02:36<07:42,  1.58s/it, loss=2.157, v_num=6663164]Epoch 1:  26%|██▌       | 100/392 [02:37<07:41,  1.58s/it, loss=2.157, v_num=6663164]Epoch 1:  26%|██▌       | 100/392 [02:37<07:41,  1.58s/it, loss=2.155, v_num=6663164]Epoch 1:  26%|██▌       | 101/392 [02:39<07:39,  1.58s/it, loss=2.155, v_num=6663164]Epoch 1:  26%|██▌       | 101/392 [02:39<07:39,  1.58s/it, loss=2.162, v_num=6663164]Epoch 1:  26%|██▌       | 102/392 [02:41<07:38,  1.58s/it, loss=2.162, v_num=6663164]Epoch 1:  26%|██▌       | 102/392 [02:41<07:38,  1.58s/it, loss=2.167, v_num=6663164]Epoch 1:  26%|██▋       | 103/392 [02:42<07:36,  1.58s/it, loss=2.167, v_num=6663164]Epoch 1:  26%|██▋       | 103/392 [02:42<07:36,  1.58s/it, loss=2.160, v_num=6663164]Epoch 1:  27%|██▋       | 104/392 [02:44<07:35,  1.58s/it, loss=2.160, v_num=6663164]Epoch 1:  27%|██▋       | 104/392 [02:44<07:35,  1.58s/it, loss=2.162, v_num=6663164]Epoch 1:  27%|██▋       | 105/392 [02:45<07:33,  1.58s/it, loss=2.162, v_num=6663164]Epoch 1:  27%|██▋       | 105/392 [02:45<07:33,  1.58s/it, loss=2.161, v_num=6663164]Epoch 1:  27%|██▋       | 106/392 [02:47<07:31,  1.58s/it, loss=2.161, v_num=6663164]Epoch 1:  27%|██▋       | 106/392 [02:47<07:31,  1.58s/it, loss=2.157, v_num=6663164]Epoch 1:  27%|██▋       | 107/392 [02:49<07:30,  1.58s/it, loss=2.157, v_num=6663164]Epoch 1:  27%|██▋       | 107/392 [02:49<07:30,  1.58s/it, loss=2.161, v_num=6663164]Epoch 1:  28%|██▊       | 108/392 [02:50<07:28,  1.58s/it, loss=2.161, v_num=6663164]Epoch 1:  28%|██▊       | 108/392 [02:50<07:28,  1.58s/it, loss=2.156, v_num=6663164]Epoch 1:  28%|██▊       | 109/392 [02:52<07:27,  1.58s/it, loss=2.156, v_num=6663164]Epoch 1:  28%|██▊       | 109/392 [02:52<07:27,  1.58s/it, loss=2.151, v_num=6663164]Epoch 1:  28%|██▊       | 110/392 [02:53<07:25,  1.58s/it, loss=2.151, v_num=6663164]Epoch 1:  28%|██▊       | 110/392 [02:53<07:25,  1.58s/it, loss=2.153, v_num=6663164]Epoch 1:  28%|██▊       | 111/392 [02:55<07:24,  1.58s/it, loss=2.153, v_num=6663164]Epoch 1:  28%|██▊       | 111/392 [02:55<07:24,  1.58s/it, loss=2.148, v_num=6663164]Epoch 1:  29%|██▊       | 112/392 [02:57<07:22,  1.58s/it, loss=2.148, v_num=6663164]Epoch 1:  29%|██▊       | 112/392 [02:57<07:22,  1.58s/it, loss=2.135, v_num=6663164]Epoch 1:  29%|██▉       | 113/392 [02:58<07:21,  1.58s/it, loss=2.135, v_num=6663164]Epoch 1:  29%|██▉       | 113/392 [02:58<07:21,  1.58s/it, loss=2.138, v_num=6663164]Epoch 1:  29%|██▉       | 114/392 [03:00<07:19,  1.58s/it, loss=2.138, v_num=6663164]Epoch 1:  29%|██▉       | 114/392 [03:00<07:19,  1.58s/it, loss=2.145, v_num=6663164]Epoch 1:  29%|██▉       | 115/392 [03:01<07:17,  1.58s/it, loss=2.145, v_num=6663164]Epoch 1:  29%|██▉       | 115/392 [03:01<07:17,  1.58s/it, loss=2.140, v_num=6663164]Epoch 1:  30%|██▉       | 116/392 [03:03<07:16,  1.58s/it, loss=2.140, v_num=6663164]Epoch 1:  30%|██▉       | 116/392 [03:03<07:16,  1.58s/it, loss=2.132, v_num=6663164]Epoch 1:  30%|██▉       | 117/392 [03:05<07:14,  1.58s/it, loss=2.132, v_num=6663164]Epoch 1:  30%|██▉       | 117/392 [03:05<07:14,  1.58s/it, loss=2.127, v_num=6663164]Epoch 1:  30%|███       | 118/392 [03:06<07:13,  1.58s/it, loss=2.127, v_num=6663164]Epoch 1:  30%|███       | 118/392 [03:06<07:13,  1.58s/it, loss=2.120, v_num=6663164]Epoch 1:  30%|███       | 119/392 [03:08<07:11,  1.58s/it, loss=2.120, v_num=6663164]Epoch 1:  30%|███       | 119/392 [03:08<07:11,  1.58s/it, loss=2.132, v_num=6663164]Epoch 1:  31%|███       | 120/392 [03:09<07:10,  1.58s/it, loss=2.132, v_num=6663164]Epoch 1:  31%|███       | 120/392 [03:09<07:10,  1.58s/it, loss=2.128, v_num=6663164]Epoch 1:  31%|███       | 121/392 [03:11<07:08,  1.58s/it, loss=2.128, v_num=6663164]Epoch 1:  31%|███       | 121/392 [03:11<07:08,  1.58s/it, loss=2.121, v_num=6663164]Epoch 1:  31%|███       | 122/392 [03:12<07:07,  1.58s/it, loss=2.121, v_num=6663164]Epoch 1:  31%|███       | 122/392 [03:12<07:07,  1.58s/it, loss=2.114, v_num=6663164]Epoch 1:  31%|███▏      | 123/392 [03:14<07:05,  1.58s/it, loss=2.114, v_num=6663164]Epoch 1:  31%|███▏      | 123/392 [03:14<07:05,  1.58s/it, loss=2.114, v_num=6663164]Epoch 1:  32%|███▏      | 124/392 [03:16<07:03,  1.58s/it, loss=2.114, v_num=6663164]Epoch 1:  32%|███▏      | 124/392 [03:16<07:03,  1.58s/it, loss=2.108, v_num=6663164]Epoch 1:  32%|███▏      | 125/392 [03:17<07:02,  1.58s/it, loss=2.108, v_num=6663164]Epoch 1:  32%|███▏      | 125/392 [03:17<07:02,  1.58s/it, loss=2.099, v_num=6663164]Epoch 1:  32%|███▏      | 126/392 [03:19<07:00,  1.58s/it, loss=2.099, v_num=6663164]Epoch 1:  32%|███▏      | 126/392 [03:19<07:00,  1.58s/it, loss=2.102, v_num=6663164]Epoch 1:  32%|███▏      | 127/392 [03:20<06:59,  1.58s/it, loss=2.102, v_num=6663164]Epoch 1:  32%|███▏      | 127/392 [03:20<06:59,  1.58s/it, loss=2.093, v_num=6663164]Epoch 1:  33%|███▎      | 128/392 [03:22<06:57,  1.58s/it, loss=2.093, v_num=6663164]Epoch 1:  33%|███▎      | 128/392 [03:22<06:57,  1.58s/it, loss=2.099, v_num=6663164]Epoch 1:  33%|███▎      | 129/392 [03:24<06:56,  1.58s/it, loss=2.099, v_num=6663164]Epoch 1:  33%|███▎      | 129/392 [03:24<06:56,  1.58s/it, loss=2.103, v_num=6663164]Epoch 1:  33%|███▎      | 130/392 [03:25<06:54,  1.58s/it, loss=2.103, v_num=6663164]Epoch 1:  33%|███▎      | 130/392 [03:25<06:54,  1.58s/it, loss=2.097, v_num=6663164]Epoch 1:  33%|███▎      | 131/392 [03:27<06:53,  1.58s/it, loss=2.097, v_num=6663164]Epoch 1:  33%|███▎      | 131/392 [03:27<06:53,  1.58s/it, loss=2.095, v_num=6663164]Epoch 1:  34%|███▎      | 132/392 [03:28<06:51,  1.58s/it, loss=2.095, v_num=6663164]Epoch 1:  34%|███▎      | 132/392 [03:28<06:51,  1.58s/it, loss=2.100, v_num=6663164]Epoch 1:  34%|███▍      | 133/392 [03:30<06:49,  1.58s/it, loss=2.100, v_num=6663164]Epoch 1:  34%|███▍      | 133/392 [03:30<06:49,  1.58s/it, loss=2.097, v_num=6663164]Epoch 1:  34%|███▍      | 134/392 [03:32<06:48,  1.58s/it, loss=2.097, v_num=6663164]Epoch 1:  34%|███▍      | 134/392 [03:32<06:48,  1.58s/it, loss=2.091, v_num=6663164]Epoch 1:  34%|███▍      | 135/392 [03:33<06:46,  1.58s/it, loss=2.091, v_num=6663164]Epoch 1:  34%|███▍      | 135/392 [03:33<06:46,  1.58s/it, loss=2.101, v_num=6663164]Epoch 1:  35%|███▍      | 136/392 [03:35<06:45,  1.58s/it, loss=2.101, v_num=6663164]Epoch 1:  35%|███▍      | 136/392 [03:35<06:45,  1.58s/it, loss=2.101, v_num=6663164]Epoch 1:  35%|███▍      | 137/392 [03:36<06:43,  1.58s/it, loss=2.101, v_num=6663164]Epoch 1:  35%|███▍      | 137/392 [03:36<06:43,  1.58s/it, loss=2.097, v_num=6663164]Epoch 1:  35%|███▌      | 138/392 [03:38<06:42,  1.58s/it, loss=2.097, v_num=6663164]Epoch 1:  35%|███▌      | 138/392 [03:38<06:42,  1.58s/it, loss=2.103, v_num=6663164]Epoch 1:  35%|███▌      | 139/392 [03:40<06:40,  1.58s/it, loss=2.103, v_num=6663164]Epoch 1:  35%|███▌      | 139/392 [03:40<06:40,  1.58s/it, loss=2.093, v_num=6663164]Epoch 1:  36%|███▌      | 140/392 [03:41<06:38,  1.58s/it, loss=2.093, v_num=6663164]Epoch 1:  36%|███▌      | 140/392 [03:41<06:38,  1.58s/it, loss=2.097, v_num=6663164]Epoch 1:  36%|███▌      | 141/392 [03:43<06:37,  1.58s/it, loss=2.097, v_num=6663164]Epoch 1:  36%|███▌      | 141/392 [03:43<06:37,  1.58s/it, loss=2.093, v_num=6663164]Epoch 1:  36%|███▌      | 142/392 [03:44<06:35,  1.58s/it, loss=2.093, v_num=6663164]Epoch 1:  36%|███▌      | 142/392 [03:44<06:35,  1.58s/it, loss=2.091, v_num=6663164]Epoch 1:  36%|███▋      | 143/392 [03:46<06:34,  1.58s/it, loss=2.091, v_num=6663164]Epoch 1:  36%|███▋      | 143/392 [03:46<06:34,  1.58s/it, loss=2.094, v_num=6663164]Epoch 1:  37%|███▋      | 144/392 [03:48<06:32,  1.58s/it, loss=2.094, v_num=6663164]Epoch 1:  37%|███▋      | 144/392 [03:48<06:32,  1.58s/it, loss=2.092, v_num=6663164]Epoch 1:  37%|███▋      | 145/392 [03:49<06:31,  1.58s/it, loss=2.092, v_num=6663164]Epoch 1:  37%|███▋      | 145/392 [03:49<06:31,  1.58s/it, loss=2.106, v_num=6663164]Epoch 1:  37%|███▋      | 146/392 [03:51<06:29,  1.58s/it, loss=2.106, v_num=6663164]Epoch 1:  37%|███▋      | 146/392 [03:51<06:29,  1.58s/it, loss=2.104, v_num=6663164]Epoch 1:  38%|███▊      | 147/392 [03:52<06:27,  1.58s/it, loss=2.104, v_num=6663164]Epoch 1:  38%|███▊      | 147/392 [03:52<06:27,  1.58s/it, loss=2.103, v_num=6663164]Epoch 1:  38%|███▊      | 148/392 [03:54<06:26,  1.58s/it, loss=2.103, v_num=6663164]Epoch 1:  38%|███▊      | 148/392 [03:54<06:26,  1.58s/it, loss=2.092, v_num=6663164]Epoch 1:  38%|███▊      | 149/392 [03:55<06:24,  1.58s/it, loss=2.092, v_num=6663164]Epoch 1:  38%|███▊      | 149/392 [03:55<06:24,  1.58s/it, loss=2.083, v_num=6663164]Epoch 1:  38%|███▊      | 150/392 [03:57<06:23,  1.58s/it, loss=2.083, v_num=6663164]Epoch 1:  38%|███▊      | 150/392 [03:57<06:23,  1.58s/it, loss=2.083, v_num=6663164]Epoch 1:  39%|███▊      | 151/392 [03:59<06:21,  1.58s/it, loss=2.083, v_num=6663164]Epoch 1:  39%|███▊      | 151/392 [03:59<06:21,  1.58s/it, loss=2.086, v_num=6663164]Epoch 1:  39%|███▉      | 152/392 [04:00<06:20,  1.58s/it, loss=2.086, v_num=6663164]Epoch 1:  39%|███▉      | 152/392 [04:00<06:20,  1.58s/it, loss=2.085, v_num=6663164]Epoch 1:  39%|███▉      | 153/392 [04:02<06:18,  1.58s/it, loss=2.085, v_num=6663164]Epoch 1:  39%|███▉      | 153/392 [04:02<06:18,  1.58s/it, loss=2.080, v_num=6663164]Epoch 1:  39%|███▉      | 154/392 [04:03<06:17,  1.58s/it, loss=2.080, v_num=6663164]Epoch 1:  39%|███▉      | 154/392 [04:03<06:17,  1.58s/it, loss=2.075, v_num=6663164]Epoch 1:  40%|███▉      | 155/392 [04:05<06:15,  1.58s/it, loss=2.075, v_num=6663164]Epoch 1:  40%|███▉      | 155/392 [04:05<06:15,  1.58s/it, loss=2.075, v_num=6663164]Epoch 1:  40%|███▉      | 156/392 [04:07<06:13,  1.58s/it, loss=2.075, v_num=6663164]Epoch 1:  40%|███▉      | 156/392 [04:07<06:13,  1.58s/it, loss=2.071, v_num=6663164]Epoch 1:  40%|████      | 157/392 [04:08<06:12,  1.58s/it, loss=2.071, v_num=6663164]Epoch 1:  40%|████      | 157/392 [04:08<06:12,  1.58s/it, loss=2.072, v_num=6663164]Epoch 1:  40%|████      | 158/392 [04:10<06:10,  1.58s/it, loss=2.072, v_num=6663164]Epoch 1:  40%|████      | 158/392 [04:10<06:10,  1.58s/it, loss=2.066, v_num=6663164]Epoch 1:  41%|████      | 159/392 [04:11<06:09,  1.58s/it, loss=2.066, v_num=6663164]Epoch 1:  41%|████      | 159/392 [04:11<06:09,  1.58s/it, loss=2.069, v_num=6663164]Epoch 1:  41%|████      | 160/392 [04:13<06:07,  1.58s/it, loss=2.069, v_num=6663164]Epoch 1:  41%|████      | 160/392 [04:13<06:07,  1.58s/it, loss=2.065, v_num=6663164]Epoch 1:  41%|████      | 161/392 [04:15<06:06,  1.58s/it, loss=2.065, v_num=6663164]Epoch 1:  41%|████      | 161/392 [04:15<06:06,  1.58s/it, loss=2.062, v_num=6663164]Epoch 1:  41%|████▏     | 162/392 [04:16<06:04,  1.58s/it, loss=2.062, v_num=6663164]Epoch 1:  41%|████▏     | 162/392 [04:16<06:04,  1.58s/it, loss=2.055, v_num=6663164]Epoch 1:  42%|████▏     | 163/392 [04:18<06:02,  1.58s/it, loss=2.055, v_num=6663164]Epoch 1:  42%|████▏     | 163/392 [04:18<06:02,  1.58s/it, loss=2.057, v_num=6663164]Epoch 1:  42%|████▏     | 164/392 [04:19<06:01,  1.58s/it, loss=2.057, v_num=6663164]Epoch 1:  42%|████▏     | 164/392 [04:19<06:01,  1.58s/it, loss=2.060, v_num=6663164]Epoch 1:  42%|████▏     | 165/392 [04:21<05:59,  1.58s/it, loss=2.060, v_num=6663164]Epoch 1:  42%|████▏     | 165/392 [04:21<05:59,  1.58s/it, loss=2.046, v_num=6663164]Epoch 1:  42%|████▏     | 166/392 [04:23<05:58,  1.58s/it, loss=2.046, v_num=6663164]Epoch 1:  42%|████▏     | 166/392 [04:23<05:58,  1.58s/it, loss=2.042, v_num=6663164]Epoch 1:  43%|████▎     | 167/392 [04:24<05:56,  1.58s/it, loss=2.042, v_num=6663164]Epoch 1:  43%|████▎     | 167/392 [04:24<05:56,  1.58s/it, loss=2.035, v_num=6663164]Epoch 1:  43%|████▎     | 168/392 [04:26<05:55,  1.58s/it, loss=2.035, v_num=6663164]Epoch 1:  43%|████▎     | 168/392 [04:26<05:55,  1.58s/it, loss=2.040, v_num=6663164]Epoch 1:  43%|████▎     | 169/392 [04:27<05:53,  1.58s/it, loss=2.040, v_num=6663164]Epoch 1:  43%|████▎     | 169/392 [04:27<05:53,  1.59s/it, loss=2.042, v_num=6663164]Epoch 1:  43%|████▎     | 170/392 [04:29<05:51,  1.59s/it, loss=2.042, v_num=6663164]Epoch 1:  43%|████▎     | 170/392 [04:29<05:51,  1.59s/it, loss=2.037, v_num=6663164]Epoch 1:  44%|████▎     | 171/392 [04:31<05:50,  1.59s/it, loss=2.037, v_num=6663164]Epoch 1:  44%|████▎     | 171/392 [04:31<05:50,  1.59s/it, loss=2.029, v_num=6663164]Epoch 1:  44%|████▍     | 172/392 [04:32<05:48,  1.59s/it, loss=2.029, v_num=6663164]Epoch 1:  44%|████▍     | 172/392 [04:32<05:48,  1.59s/it, loss=2.024, v_num=6663164]Epoch 1:  44%|████▍     | 173/392 [04:34<05:47,  1.59s/it, loss=2.024, v_num=6663164]Epoch 1:  44%|████▍     | 173/392 [04:34<05:47,  1.59s/it, loss=2.028, v_num=6663164]Epoch 1:  44%|████▍     | 174/392 [04:35<05:45,  1.59s/it, loss=2.028, v_num=6663164]Epoch 1:  44%|████▍     | 174/392 [04:35<05:45,  1.59s/it, loss=2.026, v_num=6663164]Epoch 1:  45%|████▍     | 175/392 [04:37<05:43,  1.59s/it, loss=2.026, v_num=6663164]Epoch 1:  45%|████▍     | 175/392 [04:37<05:43,  1.59s/it, loss=2.011, v_num=6663164]Epoch 1:  45%|████▍     | 176/392 [04:39<05:42,  1.59s/it, loss=2.011, v_num=6663164]Epoch 1:  45%|████▍     | 176/392 [04:39<05:42,  1.59s/it, loss=2.010, v_num=6663164]Epoch 1:  45%|████▌     | 177/392 [04:40<05:40,  1.59s/it, loss=2.010, v_num=6663164]Epoch 1:  45%|████▌     | 177/392 [04:40<05:40,  1.59s/it, loss=2.007, v_num=6663164]Epoch 1:  45%|████▌     | 178/392 [04:42<05:39,  1.59s/it, loss=2.007, v_num=6663164]Epoch 1:  45%|████▌     | 178/392 [04:42<05:39,  1.59s/it, loss=2.007, v_num=6663164]Epoch 1:  46%|████▌     | 179/392 [04:43<05:37,  1.59s/it, loss=2.007, v_num=6663164]Epoch 1:  46%|████▌     | 179/392 [04:43<05:37,  1.59s/it, loss=1.999, v_num=6663164]Epoch 1:  46%|████▌     | 180/392 [04:45<05:36,  1.59s/it, loss=1.999, v_num=6663164]Epoch 1:  46%|████▌     | 180/392 [04:45<05:36,  1.59s/it, loss=2.005, v_num=6663164]Epoch 1:  46%|████▌     | 181/392 [04:46<05:34,  1.59s/it, loss=2.005, v_num=6663164]Epoch 1:  46%|████▌     | 181/392 [04:46<05:34,  1.59s/it, loss=2.002, v_num=6663164]Epoch 1:  46%|████▋     | 182/392 [04:48<05:32,  1.59s/it, loss=2.002, v_num=6663164]Epoch 1:  46%|████▋     | 182/392 [04:48<05:32,  1.59s/it, loss=2.008, v_num=6663164]Epoch 1:  47%|████▋     | 183/392 [04:50<05:31,  1.59s/it, loss=2.008, v_num=6663164]Epoch 1:  47%|████▋     | 183/392 [04:50<05:31,  1.59s/it, loss=1.995, v_num=6663164]Epoch 1:  47%|████▋     | 184/392 [04:51<05:29,  1.59s/it, loss=1.995, v_num=6663164]Epoch 1:  47%|████▋     | 184/392 [04:51<05:29,  1.59s/it, loss=1.994, v_num=6663164]Epoch 1:  47%|████▋     | 185/392 [04:53<05:28,  1.59s/it, loss=1.994, v_num=6663164]Epoch 1:  47%|████▋     | 185/392 [04:53<05:28,  1.59s/it, loss=1.993, v_num=6663164]Epoch 1:  47%|████▋     | 186/392 [04:54<05:26,  1.59s/it, loss=1.993, v_num=6663164]Epoch 1:  47%|████▋     | 186/392 [04:54<05:26,  1.59s/it, loss=1.989, v_num=6663164]Epoch 1:  48%|████▊     | 187/392 [04:56<05:25,  1.59s/it, loss=1.989, v_num=6663164]Epoch 1:  48%|████▊     | 187/392 [04:56<05:25,  1.59s/it, loss=1.992, v_num=6663164]Epoch 1:  48%|████▊     | 188/392 [04:58<05:23,  1.59s/it, loss=1.992, v_num=6663164]Epoch 1:  48%|████▊     | 188/392 [04:58<05:23,  1.59s/it, loss=1.986, v_num=6663164]Epoch 1:  48%|████▊     | 189/392 [04:59<05:21,  1.59s/it, loss=1.986, v_num=6663164]Epoch 1:  48%|████▊     | 189/392 [04:59<05:21,  1.59s/it, loss=1.990, v_num=6663164]Epoch 1:  48%|████▊     | 190/392 [05:01<05:20,  1.59s/it, loss=1.990, v_num=6663164]Epoch 1:  48%|████▊     | 190/392 [05:01<05:20,  1.59s/it, loss=1.991, v_num=6663164]Epoch 1:  49%|████▊     | 191/392 [05:02<05:18,  1.59s/it, loss=1.991, v_num=6663164]Epoch 1:  49%|████▊     | 191/392 [05:02<05:18,  1.59s/it, loss=1.986, v_num=6663164]Epoch 1:  49%|████▉     | 192/392 [05:04<05:17,  1.59s/it, loss=1.986, v_num=6663164]Epoch 1:  49%|████▉     | 192/392 [05:04<05:17,  1.59s/it, loss=1.980, v_num=6663164]Epoch 1:  49%|████▉     | 193/392 [05:06<05:15,  1.59s/it, loss=1.980, v_num=6663164]Epoch 1:  49%|████▉     | 193/392 [05:06<05:15,  1.59s/it, loss=1.970, v_num=6663164]Epoch 1:  49%|████▉     | 194/392 [05:07<05:14,  1.59s/it, loss=1.970, v_num=6663164]Epoch 1:  49%|████▉     | 194/392 [05:07<05:14,  1.59s/it, loss=1.980, v_num=6663164]Epoch 1:  50%|████▉     | 195/392 [05:09<05:12,  1.59s/it, loss=1.980, v_num=6663164]Epoch 1:  50%|████▉     | 195/392 [05:09<05:12,  1.59s/it, loss=1.978, v_num=6663164]Epoch 1:  50%|█████     | 196/392 [05:10<05:10,  1.59s/it, loss=1.978, v_num=6663164]Epoch 1:  50%|█████     | 196/392 [05:10<05:10,  1.59s/it, loss=1.984, v_num=6663164]Epoch 1:  50%|█████     | 197/392 [05:12<05:09,  1.59s/it, loss=1.984, v_num=6663164]Epoch 1:  50%|█████     | 197/392 [05:12<05:09,  1.59s/it, loss=1.991, v_num=6663164]Epoch 1:  51%|█████     | 198/392 [05:14<05:07,  1.59s/it, loss=1.991, v_num=6663164]Epoch 1:  51%|█████     | 198/392 [05:14<05:07,  1.59s/it, loss=1.990, v_num=6663164]Epoch 1:  51%|█████     | 199/392 [05:15<05:06,  1.59s/it, loss=1.990, v_num=6663164]Epoch 1:  51%|█████     | 199/392 [05:15<05:06,  1.59s/it, loss=1.994, v_num=6663164]Epoch 1:  51%|█████     | 200/392 [05:17<05:04,  1.59s/it, loss=1.994, v_num=6663164]Epoch 1:  51%|█████     | 200/392 [05:17<05:04,  1.59s/it, loss=1.984, v_num=6663164]Epoch 1:  51%|█████▏    | 201/392 [05:18<05:03,  1.59s/it, loss=1.984, v_num=6663164]Epoch 1:  51%|█████▏    | 201/392 [05:18<05:03,  1.59s/it, loss=1.983, v_num=6663164]Epoch 1:  52%|█████▏    | 202/392 [05:20<05:01,  1.59s/it, loss=1.983, v_num=6663164]Epoch 1:  52%|█████▏    | 202/392 [05:20<05:01,  1.59s/it, loss=1.980, v_num=6663164]Epoch 1:  52%|█████▏    | 203/392 [05:22<04:59,  1.59s/it, loss=1.980, v_num=6663164]Epoch 1:  52%|█████▏    | 203/392 [05:22<04:59,  1.59s/it, loss=1.983, v_num=6663164]Epoch 1:  52%|█████▏    | 204/392 [05:23<04:58,  1.59s/it, loss=1.983, v_num=6663164]Epoch 1:  52%|█████▏    | 204/392 [05:23<04:58,  1.59s/it, loss=1.980, v_num=6663164]Epoch 1:  52%|█████▏    | 205/392 [05:25<04:56,  1.59s/it, loss=1.980, v_num=6663164]Epoch 1:  52%|█████▏    | 205/392 [05:25<04:56,  1.59s/it, loss=1.976, v_num=6663164]Epoch 1:  53%|█████▎    | 206/392 [05:26<04:55,  1.59s/it, loss=1.976, v_num=6663164]Epoch 1:  53%|█████▎    | 206/392 [05:26<04:55,  1.59s/it, loss=1.971, v_num=6663164]Epoch 1:  53%|█████▎    | 207/392 [05:28<04:53,  1.59s/it, loss=1.971, v_num=6663164]Epoch 1:  53%|█████▎    | 207/392 [05:28<04:53,  1.59s/it, loss=1.965, v_num=6663164]Epoch 1:  53%|█████▎    | 208/392 [05:30<04:51,  1.59s/it, loss=1.965, v_num=6663164]Epoch 1:  53%|█████▎    | 208/392 [05:30<04:51,  1.59s/it, loss=1.974, v_num=6663164]Epoch 1:  53%|█████▎    | 209/392 [05:31<04:50,  1.59s/it, loss=1.974, v_num=6663164]Epoch 1:  53%|█████▎    | 209/392 [05:31<04:50,  1.59s/it, loss=1.973, v_num=6663164]Epoch 1:  54%|█████▎    | 210/392 [05:33<04:48,  1.59s/it, loss=1.973, v_num=6663164]Epoch 1:  54%|█████▎    | 210/392 [05:33<04:48,  1.59s/it, loss=1.975, v_num=6663164]Epoch 1:  54%|█████▍    | 211/392 [05:34<04:47,  1.59s/it, loss=1.975, v_num=6663164]Epoch 1:  54%|█████▍    | 211/392 [05:34<04:47,  1.59s/it, loss=1.974, v_num=6663164]Epoch 1:  54%|█████▍    | 212/392 [05:36<04:45,  1.59s/it, loss=1.974, v_num=6663164]Epoch 1:  54%|█████▍    | 212/392 [05:36<04:45,  1.59s/it, loss=1.976, v_num=6663164]Epoch 1:  54%|█████▍    | 213/392 [05:37<04:44,  1.59s/it, loss=1.976, v_num=6663164]Epoch 1:  54%|█████▍    | 213/392 [05:37<04:44,  1.59s/it, loss=1.981, v_num=6663164]Epoch 1:  55%|█████▍    | 214/392 [05:39<04:42,  1.59s/it, loss=1.981, v_num=6663164]Epoch 1:  55%|█████▍    | 214/392 [05:39<04:42,  1.59s/it, loss=1.975, v_num=6663164]Epoch 1:  55%|█████▍    | 215/392 [05:41<04:40,  1.59s/it, loss=1.975, v_num=6663164]Epoch 1:  55%|█████▍    | 215/392 [05:41<04:40,  1.59s/it, loss=1.982, v_num=6663164]Epoch 1:  55%|█████▌    | 216/392 [05:42<04:39,  1.59s/it, loss=1.982, v_num=6663164]Epoch 1:  55%|█████▌    | 216/392 [05:42<04:39,  1.59s/it, loss=1.976, v_num=6663164]Epoch 1:  55%|█████▌    | 217/392 [05:44<04:37,  1.59s/it, loss=1.976, v_num=6663164]Epoch 1:  55%|█████▌    | 217/392 [05:44<04:37,  1.59s/it, loss=1.968, v_num=6663164]Epoch 1:  56%|█████▌    | 218/392 [05:45<04:36,  1.59s/it, loss=1.968, v_num=6663164]Epoch 1:  56%|█████▌    | 218/392 [05:45<04:36,  1.59s/it, loss=1.973, v_num=6663164]Epoch 1:  56%|█████▌    | 219/392 [05:47<04:34,  1.59s/it, loss=1.973, v_num=6663164]Epoch 1:  56%|█████▌    | 219/392 [05:47<04:34,  1.59s/it, loss=1.969, v_num=6663164]Epoch 1:  56%|█████▌    | 220/392 [05:49<04:32,  1.59s/it, loss=1.969, v_num=6663164]Epoch 1:  56%|█████▌    | 220/392 [05:49<04:32,  1.59s/it, loss=1.965, v_num=6663164]Epoch 1:  56%|█████▋    | 221/392 [05:50<04:31,  1.59s/it, loss=1.965, v_num=6663164]Epoch 1:  56%|█████▋    | 221/392 [05:50<04:31,  1.59s/it, loss=1.971, v_num=6663164]Epoch 1:  57%|█████▋    | 222/392 [05:52<04:29,  1.59s/it, loss=1.971, v_num=6663164]Epoch 1:  57%|█████▋    | 222/392 [05:52<04:29,  1.59s/it, loss=1.967, v_num=6663164]Epoch 1:  57%|█████▋    | 223/392 [05:53<04:28,  1.59s/it, loss=1.967, v_num=6663164]Epoch 1:  57%|█████▋    | 223/392 [05:53<04:28,  1.59s/it, loss=1.971, v_num=6663164]Epoch 1:  57%|█████▋    | 224/392 [05:55<04:26,  1.59s/it, loss=1.971, v_num=6663164]Epoch 1:  57%|█████▋    | 224/392 [05:55<04:26,  1.59s/it, loss=1.960, v_num=6663164]Epoch 1:  57%|█████▋    | 225/392 [05:57<04:25,  1.59s/it, loss=1.960, v_num=6663164]Epoch 1:  57%|█████▋    | 225/392 [05:57<04:25,  1.59s/it, loss=1.961, v_num=6663164]Epoch 1:  58%|█████▊    | 226/392 [05:58<04:23,  1.59s/it, loss=1.961, v_num=6663164]Epoch 1:  58%|█████▊    | 226/392 [05:58<04:23,  1.59s/it, loss=1.970, v_num=6663164]Epoch 1:  58%|█████▊    | 227/392 [06:00<04:21,  1.59s/it, loss=1.970, v_num=6663164]Epoch 1:  58%|█████▊    | 227/392 [06:00<04:21,  1.59s/it, loss=1.972, v_num=6663164]Epoch 1:  58%|█████▊    | 228/392 [06:01<04:20,  1.59s/it, loss=1.972, v_num=6663164]Epoch 1:  58%|█████▊    | 228/392 [06:01<04:20,  1.59s/it, loss=1.964, v_num=6663164]Epoch 1:  58%|█████▊    | 229/392 [06:03<04:18,  1.59s/it, loss=1.964, v_num=6663164]Epoch 1:  58%|█████▊    | 229/392 [06:03<04:18,  1.59s/it, loss=1.954, v_num=6663164]Epoch 1:  59%|█████▊    | 230/392 [06:05<04:17,  1.59s/it, loss=1.954, v_num=6663164]Epoch 1:  59%|█████▊    | 230/392 [06:05<04:17,  1.59s/it, loss=1.950, v_num=6663164]Epoch 1:  59%|█████▉    | 231/392 [06:06<04:15,  1.59s/it, loss=1.950, v_num=6663164]Epoch 1:  59%|█████▉    | 231/392 [06:06<04:15,  1.59s/it, loss=1.953, v_num=6663164]Epoch 1:  59%|█████▉    | 232/392 [06:08<04:13,  1.59s/it, loss=1.953, v_num=6663164]Epoch 1:  59%|█████▉    | 232/392 [06:08<04:13,  1.59s/it, loss=1.954, v_num=6663164]Epoch 1:  59%|█████▉    | 233/392 [06:09<04:12,  1.59s/it, loss=1.954, v_num=6663164]Epoch 1:  59%|█████▉    | 233/392 [06:09<04:12,  1.59s/it, loss=1.954, v_num=6663164]Epoch 1:  60%|█████▉    | 234/392 [06:11<04:10,  1.59s/it, loss=1.954, v_num=6663164]Epoch 1:  60%|█████▉    | 234/392 [06:11<04:10,  1.59s/it, loss=1.950, v_num=6663164]Epoch 1:  60%|█████▉    | 235/392 [06:13<04:09,  1.59s/it, loss=1.950, v_num=6663164]Epoch 1:  60%|█████▉    | 235/392 [06:13<04:09,  1.59s/it, loss=1.945, v_num=6663164]Epoch 1:  60%|██████    | 236/392 [06:14<04:07,  1.59s/it, loss=1.945, v_num=6663164]Epoch 1:  60%|██████    | 236/392 [06:14<04:07,  1.59s/it, loss=1.937, v_num=6663164]Epoch 1:  60%|██████    | 237/392 [06:16<04:06,  1.59s/it, loss=1.937, v_num=6663164]Epoch 1:  60%|██████    | 237/392 [06:16<04:06,  1.59s/it, loss=1.940, v_num=6663164]Epoch 1:  61%|██████    | 238/392 [06:17<04:04,  1.59s/it, loss=1.940, v_num=6663164]Epoch 1:  61%|██████    | 238/392 [06:17<04:04,  1.59s/it, loss=1.935, v_num=6663164]Epoch 1:  61%|██████    | 239/392 [06:19<04:02,  1.59s/it, loss=1.935, v_num=6663164]Epoch 1:  61%|██████    | 239/392 [06:19<04:02,  1.59s/it, loss=1.928, v_num=6663164]Epoch 1:  61%|██████    | 240/392 [06:21<04:01,  1.59s/it, loss=1.928, v_num=6663164]Epoch 1:  61%|██████    | 240/392 [06:21<04:01,  1.59s/it, loss=1.931, v_num=6663164]Epoch 1:  61%|██████▏   | 241/392 [06:22<03:59,  1.59s/it, loss=1.931, v_num=6663164]Epoch 1:  61%|██████▏   | 241/392 [06:22<03:59,  1.59s/it, loss=1.920, v_num=6663164]Epoch 1:  62%|██████▏   | 242/392 [06:24<03:58,  1.59s/it, loss=1.920, v_num=6663164]Epoch 1:  62%|██████▏   | 242/392 [06:24<03:58,  1.59s/it, loss=1.916, v_num=6663164]Epoch 1:  62%|██████▏   | 243/392 [06:25<03:56,  1.59s/it, loss=1.916, v_num=6663164]Epoch 1:  62%|██████▏   | 243/392 [06:25<03:56,  1.59s/it, loss=1.918, v_num=6663164]

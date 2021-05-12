@@ -16,7 +16,13 @@ import pytorch_lightning as pl
 
 
 import sys
+sys.path.append('../vit_pytorch/')
+sys.path.append('utils/')
+sys.path.append('data/')
+sys.path.append('models/')
+
 sys.path.append('..')
+
 from vit import ViT
 from recorder import Recorder # import the Recorder and instantiate
 from dataloader import *
